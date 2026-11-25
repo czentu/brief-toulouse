@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brief du matin</title>
+<base target="_blank">
+<style>
+/* Deux bandes : le jour dessiné en haut ; en bas, chaque section a sa forme (relevés météo, une, tableau des scores, trois colonnes, cotations). */
+:root {
+  --bg: #FCFCFB; --wash: #F9F9F7; --edge: #E1E1DF;
+  --ink: #2E2C27; --ink-soft: #6B6A63; --ink-grey: #B4B3A8;
+  --hairline: #E4E3DC; --clay: #C6613F;
+  --up: #3D7A4F; --down: #B0432E;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1C1B19; --wash: #232220; --edge: #36352F;
+  --ink: #ECEAE3; --ink-soft: #A9A79E; --ink-grey: #6F6E66;
+  --hairline: #36352F; --clay: #D97757; --up: #7BBF8C; --down: #E58A72; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1C1B19; --wash: #232220; --edge: #36352F;
+  --ink: #ECEAE3; --ink-soft: #A9A79E; --ink-grey: #6F6E66;
+  --hairline: #36352F; --clay: #D97757; --up: #7BBF8C; --down: #E58A72; color-scheme: dark }
+@font-face { font-family: "Fraunces"; font-weight: 600; font-style: normal; font-display: block;
+  src: url(data:font/woff2;base64,__FRAUNCES__) format("woff2"); }
+
+body { margin: 0; background: var(--bg); color: var(--ink-soft); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+.band.top { background: var(--wash); border-bottom: 1px solid var(--edge); }
+.inner { max-width: 860px; margin: 0 auto; padding-block: 56px;
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.brand { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; color: var(--ink); }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand .bk { fill: none; stroke: var(--ink); stroke-width: 4.2; stroke-linecap: round; }
+.brand .bw { fill: none; stroke: var(--ink-grey); stroke-width: 3.2; stroke-linecap: round; }
+.brand .bs { fill: var(--clay); } .brand .br { stroke: var(--clay); stroke-width: 3.2; stroke-linecap: round; }
+.brand b { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: -.01em; line-height: 1; }
+.daydate { font-size: 14px; letter-spacing: .02em; margin: 0 0 14px; }
+h1 { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 1.15; color: var(--ink);
+  margin: 0 0 28px; text-wrap: balance; letter-spacing: -.01em; }
+svg.terrain { display: block; width: 100%; height: auto; margin-bottom: 20px; }
+.stroke { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.thin { fill: none; stroke: var(--ink-grey); stroke-width: 1.6; stroke-linecap: round; }
+.sun { fill: none; stroke: var(--clay); stroke-width: 2; stroke-linecap: round; }
+.acts { display: grid; grid-template-columns: repeat(3, 1fr); }
+.act { padding: 4px 24px; border-left: 1px solid var(--hairline); min-width: 0; }
+.act:first-child { padding-left: 0; border-left: 0; }
+.act b { display: block; color: var(--ink); font-size: 14px; font-weight: 650; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.act p { margin: 0; font-size: 15px; }
+
+.bottom .inner { display: flex; flex-direction: column; gap: 60px; }
+h2 { font-family: var(--sans); font-size: 13px; font-weight: 650; color: var(--ink); margin: 0 0 20px;
+  text-transform: uppercase; letter-spacing: .09em; display: flex; align-items: center; gap: 12px; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
+section p { margin: 0 0 12px; max-width: 68ch; }
+.calm { margin: 0; }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--ink-grey); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink-soft); }
+a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+.t { display: block; color: var(--ink); font-weight: 650; line-height: 1.35; margin-bottom: 3px; }
+.big { font-family: var(--serif); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
+.lbl { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+.ico { width: 26px; height: 26px; fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico .warm { stroke: var(--clay); }
+
+/* Météo : trois relevés */
+.wx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 20px; }
+.wx > div { padding: 4px 24px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.wx > div:first-child { padding-left: 0; border-left: 0; }
+.wx .big { font-size: 40px; }
+.wx .big small { font-size: 20px; color: var(--ink-soft); }
+.wx .sub { font-size: 14px; }
+
+/* Actualités : la une + grille */
+.une { display: grid; grid-template-columns: 1fr; gap: 6px; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--hairline); }
+.une .t { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.2; text-wrap: balance; margin-bottom: 4px; }
+.une p { margin: 0; max-width: 68ch; }
+.news { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; counter-reset: n 1; }
+.news li { counter-increment: n; display: grid; grid-template-columns: 34px 1fr; min-width: 0; }
+.news li::before { content: counter(n, decimal-leading-zero); font-family: var(--serif); font-weight: 600; color: var(--ink-grey); font-size: 18px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.news li > div { min-width: 0; font-size: 15px; }
+.tag { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--ink-grey); font-weight: 600; }
+
+/* Sport : tableau des scores */
+.scores { display: flex; flex-direction: column; }
+.score { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 18px; padding: 16px 0; border-top: 1px solid var(--hairline); }
+.score:first-child { border-top: 0; padding-top: 0; }
+.team { color: var(--ink); font-weight: 650; font-size: 17px; }
+.team.r { text-align: right; }
+.team.l { text-align: left; }
+.team.win::after, .team.r.win::before { content: none; }
+.sc { font-size: 34px; text-align: center; white-space: nowrap; }
+.sc .lose { color: var(--ink-grey); }
+.score-note { grid-column: 1 / -1; text-align: center; font-size: 14px; margin-top: -6px; }
+.mini { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; grid-column: 1 / -1; }
+.podium { grid-column: 1 / -1; display: flex; justify-content: center; align-items: baseline; gap: 22px; flex-wrap: wrap; color: var(--ink); }
+.podium b { font-family: var(--serif); font-weight: 600; font-size: 26px; margin-right: 6px; }
+.podium .p2 b { color: var(--ink-grey); }
+
+/* Sciences, économie, IA : trois colonnes */
+.themes { display: grid; grid-template-columns: repeat(3, 1fr); }
+.theme { padding: 0 24px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.theme:first-child { padding-left: 0; border-left: 0; }
+.theme:last-child { padding-right: 0; }
+.theme header { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; font-size: 15px; }
+.theme article { font-size: 14.5px; }
+
+.theme .tag { display: block; margin-bottom: 2px; }
+.themes.two { grid-template-columns: repeat(2, 1fr); }
+
+.big.air { font-size: 40px; }
+.big.air small { font-size: 16px; color: var(--ink-soft); font-family: var(--sans); font-weight: 500; }
+.themes.culture { grid-template-columns: repeat(4, 1fr); }
+.themes.culture .theme { padding: 0 18px; }
+.themes.culture .theme:first-child { padding-left: 0; }
+.themes.culture .theme:last-child { padding-right: 0; }
+.fuel { display: grid; grid-template-columns: auto 1fr; gap: 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); margin-bottom: 20px; }
+.fuel-avg { display: flex; flex-direction: column; gap: 8px; padding: 18px 28px 18px 0; }
+.fuel-avg .big { font-size: 40px; white-space: nowrap; }
+.fuel-avg .big small { font-size: 18px; color: var(--ink-soft); }
+.fuel-avg .sub { font-size: 14px; }
+.fuel-top { list-style: none; margin: 0; padding: 18px 0 18px 28px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 15px; }
+.fuel-top li { display: flex; gap: 14px; align-items: baseline; min-width: 0; }
+.fuel-top b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }.themes.culture .theme article { font-size: 14px; }
+
+/* Marchés : cotations */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--hairline); margin-bottom: 20px; }
+.q { padding: 18px 20px 18px 0; border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.q:nth-child(3n+2), .q:nth-child(3n) { padding-left: 20px; border-left: 1px solid var(--hairline); }
+.q .big { font-size: 28px; white-space: nowrap; }
+.q .big small { font-size: 15px; color: var(--ink-soft); }
+.chg { font-size: 14px; font-weight: 650; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 6px; }
+.chg.up { color: var(--up); } .chg.down { color: var(--down); } .chg.flat { color: var(--ink-soft); font-weight: 500; }
+.chg svg { width: 10px; height: 10px; fill: currentColor; }
+.chg span { color: var(--ink-soft); font-weight: 500; }
+.src { font-size: 14px; }
+
+@media (max-width: 640px) {
+  .inner { padding-block: 36px; }
+  .bottom .inner { gap: 48px; }
+  h1 { font-size: 30px; }
+  .acts, .wx, .themes { grid-template-columns: 1fr; }
+  .act, .wx > div, .theme { padding: 14px 0; border-left: 0; border-top: 1px solid var(--hairline); }
+  .act:first-child, .wx > div:first-child, .theme:first-child { border-top: 0; padding-top: 0; }
+  .news { grid-template-columns: 1fr; }
+  .themes.culture { grid-template-columns: 1fr; }
+  .themes.culture .theme { padding: 14px 0; }
+  .fuel { grid-template-columns: 1fr; }
+  .fuel-avg { padding: 16px 0; }
+  .fuel-top { padding: 16px 0; border-left: 0; border-top: 1px solid var(--hairline); }
+  .themes.two { grid-template-columns: 1fr; }
+  .une .t { font-size: 22px; }
+  .quotes { grid-template-columns: 1fr 1fr; }
+  .q, .q:nth-child(3n+2), .q:nth-child(3n) { padding: 16px 14px 16px 0; border-left: 0; }
+  .q:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--hairline); }
+  .q .big { font-size: 23px; }
+  .sc { font-size: 26px; }
+  .team { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-up" viewBox="0 0 10 10"><path d="M5 1 L9.5 9 H0.5 Z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 10 10"><path d="M5 9 L9.5 1 H0.5 Z"/></symbol>
+</svg>
+
+<div class="band top"><div class="inner">
+  <!-- Logo du Brief : à garder tel quel sur chaque brief -->
+  <div class="brand" aria-label="Brief">
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <defs><clipPath id="brand-horizon"><rect x="0" y="0" width="96" height="53"/></clipPath></defs>
+      <circle class="bs" cx="48" cy="53" r="18" clip-path="url(#brand-horizon)"/>
+      <path class="br" d="M48 23 v-8 M69 31 l5 -5 M27 31 l-5 -5"/>
+      <path class="bk" d="M10 57 C 24 52, 35 60, 48 56 S 74 52, 86 57"/>
+      <path class="bw" d="M28 70 h40 M38 79 h20"/>
+    </svg>
+    <b>Brief</b>
+  </div>
+  <p class="daydate">Dimanche · 15 novembre 2026</p>
+  <h1>Un dimanche sans rendez-vous, sous un ciel voilé et un peu de vent d’autan.</h1>
+
+  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La journée dessinée comme une eau calme : voile de nuages le matin, soleil voilé l’après-midi, vent le soir.">
+    <path class="thin" d="M84 52 h78 M104 64 h92 M70 76 h60"/>
+    <circle class="sun" cx="420" cy="58" r="17"/>
+    <path class="sun" d="M420 27 v-8 M447 37 l6 -6 M393 37 l-6 -6 M452 60 h9 M379 60 h9"/>
+    <path class="thin" d="M388 72 h74 M404 84 h62"/>
+    <path class="thin" d="M640 50 h70 a11 11 0 1 0 -11 -11"/>
+    <path class="thin" d="M662 68 h92 a10 10 0 1 1 -10 10"/>
+    <path class="thin" d="M650 86 h46"/>
+    <path class="stroke" d="M0 128 C 50 125, 90 131, 140 128 S 230 125, 280 128 S 370 131, 420 127 S 510 125, 560 128 S 650 131, 700 128 S 790 125, 840 128"/>
+  </svg>
+
+  <div class="acts">
+    <div class="act"><b>7h – 12h</b><p>Autour de 10 °C au lever, sous un voile de nuages et un air humide.</p></div>
+    <div class="act"><b>12h – 18h</b><p>15 à 16 °C au plus doux ; le vent de sud-est pousse des rafales jusqu’à 35 km/h.</p></div>
+    <div class="act"><b>18h et après</b><p>Rien au programme ; la fraîcheur revient avec la nuit.</p></div>
+  </div>
+</div></div>
+
+<div class="band bottom"><div class="inner">
+  <p class="calm">Rien à signaler ce matin : aucun calendrier ni messagerie n’alimente ce brief.</p>
+
+  <section>
+    <h2>Météo à Toulouse</h2>
+    <div class="wx">
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 17 h16 M8 21 h10"/><path d="M7 13 a6 6 0 0 1 12 0"/></svg>
+        <span class="lbl">Matin</span>
+        <span class="big">10<small>°C</small></span>
+        <span class="sub">Ciel voilé, air humide</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle class="warm" cx="13" cy="11" r="5"/><path class="warm" d="M13 2 v2 M13 18 v2 M4 11 h2 M20 11 h2 M6.6 4.6 l1.4 1.4 M18 16 l1.4 1.4 M19.4 4.6 L18 6 M8 16 l-1.4 1.4"/><path d="M5 23 h16"/></svg>
+        <span class="lbl">Après-midi</span>
+        <span class="big">15–16<small>°C</small></span>
+        <span class="sub">Le plus doux de la journée</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 10 h14 a3 3 0 1 0 -3 -3"/><path d="M3 15 h18 a3 3 0 1 1 -3 3"/><path d="M3 20 h8"/></svg>
+        <span class="lbl">Vent de sud-est</span>
+        <span class="big">35<small> km/h</small></span>
+        <span class="sub">En rafales, 10–15 km/h en moyenne</span>
+      </div>
+    </div>
+    <p>Pas de pluie annoncée dans la prévision du jour <a href="https://www.ouest-france.fr/meteo/region-occitanie/toulouse-31000/la-meteo-du-jour-a-toulouse-0258c6d5-43d6-4489-ac65-3ad68e66aa23">publiée par Ouest-France à 4h42</a> ; les températures retombent en soirée.</p>
+  </section>
+
+  <section>
+    <h2>Actualités du jour</h2>
+    <div class="une">
+      <span class="tag">À la une · Monde</span>
+      <span class="t">Deux pétroliers en feu dans le détroit d’Ormuz</span>
+      <p>Les Gardiens de la révolution iraniens affirment que deux navires ont heurté des mines et qu’un superpétrolier a coulé, sans confirmation indépendante, <a href="https://www.franceinfo.fr/monde/iran/crise-dans-le-detroit-d-ormuz/l-iran-fait-etat-de-deux-petroliers-en-feu-dans-le-detroit-d-ormuz_8283602.html">selon franceinfo</a>.</p>
+    </div>
+    <ol class="news">
+      <li><div><span class="tag">Monde</span><span class="t">Trump, Xi et Poutine attendus jeudi à Shenzhen</span>
+        Washington puis Moscou annoncent une rencontre à trois le 19 novembre, centrée sur le nucléaire et l’Iran, que Pékin n’a pas confirmée, <a href="https://www.rts.ch/info/monde/2026/article/trump-xi-et-poutine-se-rencontrent-jeudi-en-chine-29415799.html">rapporte la RTS</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Le Smic passera à 1 502 € net le 1er décembre</span>
+        La hausse de 1,6 %, avancée d’un mois, est jugée insuffisante par les syndicats, et le patronat demande des contreparties, <a href="https://www.franceinfo.fr/economie/pouvoir-achat/smic-une-hausse-a-1-502-euros-net-des-le-1er-decembre-les-syndicats-reclament-davantage_8274533.html">d’après franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">La COP31 entre dans sa dernière semaine</span>
+        À Antalya, les négociations courent jusqu’au 20 novembre et butent sur le financement climatique, <a href="https://fr.allafrica.com/stories/202611140102.html">selon allAfrica</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Ebola en RDC : plus de 5 300 morts en six mois</span>
+        L’OMS compte près de 11 000 cas confirmés dans huit provinces ; violences et déplacements freinent la riposte, <a href="https://news.un.org/fr/story/2026/11/1159824">indique ONU Info</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Coup de pouce ciblé pour les fonctionnaires les moins payés</span>
+        David Amiel confirme des points d’indice en plus, environ 350 € bruts par an en moyenne, sans hausse générale du point, <a href="https://www.franceinfo.fr/economie/david-amiel-annonce-une-revalorisation-du-point-d-indice-pour-les-fonctionnaires-aux-plus-bas-salaires_8283416.html">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">L’Hérault sous les eaux après une nuit d’orages</span>
+        Des dizaines d’automobilistes mis en sécurité au sud de Montpellier ; la vigilance orange est levée mais des routes restent fermées, <a href="https://www.cnews.fr/france/2026-11-15/routes-inondees-voitures-bloquees-les-images-impressionnantes-des-inondations">rapporte CNews</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Le ciel américain se remet d’une panne géante</span>
+        Une défaillance du contrôle aérien a entraîné quelque 15 000 annulations selon un décompte provisoire ; retour à la normale espéré ce soir, <a href="https://www.air-journal.fr/2026-11-15-panne-du-controle-aerien-aux-etats-unis-15-000-vols-annules-en-deux-jours-la-reprise-attendue-dimanche-soir-5278858.html">d’après Air Journal</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Un commandant du Hamas tué par un drone à Gaza</span>
+        Israël dit avoir visé un chef de la branche armée près de Khan Younès, malgré le cessez-le-feu, <a href="https://www.france24.com/fr/moyen-orient/20261115-commandant-hamas-tu%C3%A9-par-drone-israel-dans-sud-de-gaza">selon France 24</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Le Cap-Vert élit son président aujourd’hui</span>
+        Six candidats, dont le sortant José Maria Neves face à Joana Rosa Amado, dans une campagne dominée par la vie chère, <a href="https://www.france24.com/fr/afrique/20261114-pr%C3%A9sidentielle-au-cap-vert-derri%C3%A8re-la-stabilit%C3%A9-politique-des-d%C3%A9fis-sociaux-%C3%A0-relever">explique France 24</a>.</div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Sport</h2>
+    <div class="scores">
+      <div class="score">
+        <span class="team r">France</span>
+        <span class="sc big">21 <span class="lose">– 19</span></span>
+        <span class="team l">Afrique du Sud</span>
+        <p class="score-note">Rugby, vendredi au Stade de France : les Bleus menaient 21-7 à la pause et prennent la tête du Championnat des nations avant l’Argentine samedi, <a href="https://www.equipe-france.fr/rugby/masculin/championnat-des-nations-2026-les-bleus-font-tomber-l-afrique-du-sud-21-19">selon Équipe de France</a>.</p>
+      </div>
+      <div class="score">
+        <div class="mini"><span><b>Angleterre 78</b> – 15 Japon</span><span><b>Irlande 43</b> – 15 Fidji</span><span><b>Argentine 19</b> – 14 Italie</span></div>
+        <p class="score-note">Les autres matchs du Championnat des nations samedi, <a href="https://sports.orange.fr/plus-de-sport/article/le-top-de-l-actu-sportive-du-14-novembre-exclu-CNT000002tJzO5.html">résumés par Orange Sports</a>.</p>
+      </div>
+      <div class="score">
+        <div class="podium"><span><b>1</b>Lou Jeanmonnot</span><span class="p2"><b>2</b>Justine Braisaz-Bouchet</span></div>
+        <p class="score-note">Doublé français au sprint dans la mass-start de biathlon à Bessans, <a href="https://sports.orange.fr/plus-de-sport/article/le-top-de-l-actu-sportive-du-14-novembre-exclu-CNT000002tJzO5.html">d’après Orange Sports</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sciences, économie et IA</h2>
+    <div class="themes">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="2"/><ellipse cx="13" cy="13" rx="10" ry="4"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(60 13 13)"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(120 13 13)"/></svg>Sciences</header>
+        <article><span class="t">Un possible signal de matière noire</span>
+          L’expérience LZ a repéré en septembre un événement compatible avec une WIMP, à 2,6 sigma, loin du seuil d’une découverte, <a href="https://newscenter.lbl.gov/2026/09/01/lz-sees-surprising-result-in-search-for-dark-matter/">explique le Berkeley Lab</a>.</article>
+        <article><span class="t">Les Dénisoviens sortent de l’ombre</span>
+          Fossiles et plus de 1 300 outils d’une grotte du Yunnan, publiés dans Nature, décrivent des chasseurs de buffles et de cerfs, <a href="https://www.cnn.com/2026/09/09/science/china-denisovan-fossil-discovery">rapporte CNN</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 22 h20"/><path d="M4 17 l5 -5 l4 3 l8 -9"/><path d="M16 6 h5 v5"/></svg>Économie</header>
+        <article><span class="t">Inflation au plus haut depuis 2024</span>
+          L’Insee confirme 3,4 % sur un an en octobre en France, portée par une énergie en hausse de 24 %, <a href="https://www.zonebourse.com/actualite-bourse/france-l-acceleration-de-l-inflation-confirmee-en-octobre-ce785ed9dc81f72d">selon Zonebourse</a>.</article>
+        <article><span class="t">Nvidia change de patron</span>
+          Jensen Huang a démissionné après une enquête interne ; la directrice financière Colette Kress assure l’intérim, <a href="https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns">rapporte CNN</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="7" width="12" height="12" rx="1.5"/><rect x="10.5" y="10.5" width="5" height="5"/><path d="M10 7 V3 M16 7 V3 M10 23 v-4 M16 23 v-4 M7 10 H3 M7 16 H3 M23 10 h-4 M23 16 h-4"/></svg>IA</header>
+        <article><span class="t">Google lance son modèle le plus puissant</span>
+          Gemini 4 Carbon est réservé à l’abonnement Google AI Ultra, le plus cher de l’offre, <a href="https://www.journaldugeek.com/category/tech/intelligence-artificielle/">selon le Journal du Geek</a>.</article>
+        <article><span class="t">Les géants de l’IA assignés en justice</span>
+          Quatre associations demandent à un tribunal de San Francisco de stopper les IA plus avancées qu’aujourd’hui, <a href="https://www.lemondeinformatique.fr/intelligence-artificielle-154.html">relève Le Monde Informatique</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Espace et aéronautique</h2>
+    <div class="themes two">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3 c4 3 5 8 4 13 h-8 c-1 -5 0 -10 4 -13 z"/><circle cx="13" cy="10" r="1.6"/><path d="M9 16 l-3 4 h4 M17 16 l3 4 h-4"/><path class="warm" d="M11.5 20 l1.5 3 l1.5 -3"/></svg>Espace</header>
+        <article><span class="tag">Domaine</span><span class="t">Titre du sujet</span>
+          Ce qui s’est passé. Pourquoi ça compte ou ce qui vient ensuite, <a href="https://exemple.invalid/">selon la source</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 14 l20 -6 c1 -0.3 1.6 1.2 0.6 1.7 L5 18 z"/><path d="M10 12 l-3 -6 h3 l6 4.5"/><path d="M8 16.5 l1 4 h2.5 l2 -6"/></svg>Aéronautique</header>
+        <article><span class="tag">Domaine</span><span class="t">Titre du sujet</span>
+          Ce qui s’est passé. Pourquoi ça compte ou ce qui vient ensuite, <a href="https://exemple.invalid/">selon la source</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Santé</h2>
+    <div class="themes two">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 9 h12 a3 3 0 1 0 -3 -3"/><path d="M3 14 h17 a3 3 0 1 1 -3 3"/><path class="warm" d="M3 19 h7"/></svg>Air à Toulouse</header>
+        <span class="lbl">Indice européen, pic de la journée</span>
+        <span class="big air">00<small> · correct</small></span>
+        <span class="sub">Heure du pic et polluant principal, puis le moment le plus sain pour sortir, <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22 c-6 -4 -9 -8 -9 -12 a4.5 4.5 0 0 1 9 -1.5 a4.5 4.5 0 0 1 9 1.5 c0 4 -3 8 -9 12 z"/><path class="warm" d="M7 13 h3 l1.5 -3 l2 5 l1.5 -2 h4"/></svg>Santé</header>
+        <article><span class="tag">Domaine</span><span class="t">Titre du sujet</span>
+          Ce qui s’est passé. Pourquoi ça compte ou ce qui vient ensuite, <a href="https://exemple.invalid/">selon la source</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Culture</h2>
+    <div class="themes culture">
+      <div class="theme"><article><span class="tag">Cinéma</span><span class="t">Titre du sujet</span>
+        Une phrase, <a href="https://exemple.invalid/">selon la source</a>.</article></div>
+      <div class="theme"><article><span class="tag">Expo à Toulouse</span><span class="t">Titre du sujet</span>
+        Une phrase avec le lieu et les dates, <a href="https://exemple.invalid/">selon la source</a>.</article></div>
+      <div class="theme"><article><span class="tag">Livres</span><span class="t">Titre du sujet</span>
+        Une phrase, <a href="https://exemple.invalid/">selon la source</a>.</article></div>
+      <div class="theme"><article><span class="tag">Musique</span><span class="t">Titre du sujet</span>
+        Une phrase, <a href="https://exemple.invalid/">selon la source</a>.</article></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Carburant à Toulouse</h2>
+    <div class="fuel">
+      <div class="fuel-avg">
+        <span class="lbl">SP95-E10 · prix moyen</span>
+        <span class="big">0,000<small> €/L</small></span>
+        <span class="sub">00 stations relevées · de 0,000 à 0,000 €</span>
+      </div>
+      <ol class="fuel-top">
+        <li><b>0,000 €</b>adresse</li>
+        <li><b>0,000 €</b>adresse</li>
+        <li><b>0,000 €</b>adresse</li>
+      </ol>
+    </div>
+    <p class="src">Mise à jour à telle heure, <a href="https://www.prix-carburants.gouv.fr/">selon prix-carburants.gouv.fr</a>.</p>
+  </section>
+
+  <section>
+    <h2>Marchés</h2>
+    <div class="quotes">
+      <div class="q"><span class="lbl">CAC 40</span><span class="big">8 369</span>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,09 % <span>· +2,8 % sur la semaine</span></span></div>
+      <div class="q"><span class="lbl">S&amp;P 500</span><span class="big">7 561,67</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,4 % <span>· +2,5 % sur la semaine</span></span></div>
+      <div class="q"><span class="lbl">Nasdaq</span><span class="big">25 136,27</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,9 % <span>· +2,3 % sur la semaine</span></span></div>
+      <div class="q"><span class="lbl">Euro / dollar</span><span class="big">1,1052</span>
+        <span class="chg flat">Référence BCE du 13 novembre</span></div>
+      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">95,84<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−2,5 % <span>sur la semaine</span></span></div>
+      <div class="q"><span class="lbl">Bitcoin</span><span class="big">≈ 65 000<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−1,6 % <span>· ce dimanche</span></span></div>
+    </div>
+    <p class="src">Clôtures du vendredi 13 novembre. Le CAC 40 signe cinq hausses sur cinq séances, à son plus haut depuis fin août (<a href="https://www.moneyvox.fr/bourse/actualites/111240/le-cac-40-totalenergies-en-forme-le-journal-de-la-bourse-du-vendredi-13-novembre-2026">Moneyvox</a>) ; Wall Street recule sous l’effet de la chute de Nvidia et de la crainte d’une hausse des taux (<a href="https://krmg.com/2026/11/13/how-major-us-stock-indexes-fared-friday-11-13-2026/">KRMG</a>). Le Brent reflue sur l’espoir d’un accord entre Washington et Téhéran (<a href="https://prixdubaril.com/petrole-index/cours-de-cloture-baril-petrole.html">Prix du baril</a>), et le bitcoin est passé sous 62 000 $ avant de remonter (<a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a>).</p>
+  </section>
+</div></div>
+
+</body>
+</html>
