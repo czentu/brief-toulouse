@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brief du matin</title>
+<title>Brief de l’après-midi</title>
 <base target="_blank">
 <link rel="manifest" href="/brief-toulouse/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/brief-toulouse/icon-180.png">
@@ -175,6 +175,11 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
   <symbol id="i-down" viewBox="0 0 10 10"><path d="M5 9 L9.5 1 H0.5 Z"/></symbol>
 </svg>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-up" viewBox="0 0 10 10"><path d="M5 1 L9.5 9 H0.5 Z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 10 10"><path d="M5 9 L9.5 1 H0.5 Z"/></symbol>
+</svg>
+
 <div class="band top"><div class="inner">
   <!-- Logo du Brief : à garder tel quel sur chaque brief -->
   <div class="brand" aria-label="Brief">
@@ -188,49 +193,77 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <b>Brief</b>
   </div>
   <p class="daydate">Mercredi · 25 novembre 2026</p>
-  <h1>Un mercredi sans rendez-vous, avec le PSG en soirée.</h1>
+  <h1>Une fin de journée calme sous un voile de nuages, avant la pluie de demain matin.</h1>
 
-  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La journée dessinée comme une eau calme.">
-    <circle class="sun" cx="420" cy="70" r="17"/>
+  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La journée dessinée comme une eau calme : voile de nuages en fin d’après-midi, ciel couvert en soirée, lune et pluie légère la nuit.">
+    <path class="thin" d="M84 52 h78 M104 64 h92 M70 76 h60"/>
+    <path class="thin" d="M388 60 h74 M404 72 h62 M372 84 h50"/>
+    <path class="sun" d="M690 40 a22 22 0 1 0 22 30 a17 17 0 1 1 -22 -30 z"/>
+    <path class="thin" d="M560 50 v10 M572 58 v10 M584 50 v10"/>
     <path class="stroke" d="M0 128 C 50 125, 90 131, 140 128 S 230 125, 280 128 S 370 131, 420 127 S 510 125, 560 128 S 650 131, 700 128 S 790 125, 840 128"/>
   </svg>
 
   <div class="acts">
-    <div class="act"><b>7h – 12h</b><p>Rien au programme.</p></div>
-    <div class="act"><b>12h – 18h</b><p>Rien au programme.</p></div>
-    <div class="act"><b>18h et après</b><p>Ligue des champions à 21h : le PSG reçoit l’AS Rome.</p></div>
+    <div class="act"><b>16h30 – 18h</b><p>Un voile de nuages et 10 °C qui retombent vers 9 °C ; le soleil se couche à 17h21.</p></div>
+    <div class="act"><b>18h – 21h</b><p>8 à 9 °C, presque pas de vent, et peu de chances de pluie.</p></div>
+    <div class="act"><b>21h et après</b><p>Autour de 8 °C pour la nuit ; la pluie revient demain dès 6h.</p></div>
   </div>
 </div></div>
 
 <div class="band bottom"><div class="inner">
-  <p class="calm">Rien à signaler : aucun calendrier ni messagerie n’alimente ce brief.</p>
+  <p class="calm">Rien à signaler : aucun calendrier ni messagerie n'alimente ce brief.</p>
+
+  <section>
+    <h2>Météo à Toulouse</h2>
+    <div class="wx">
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 17 h16 M8 21 h10"/><path d="M7 13 a6 6 0 0 1 12 0"/></svg>
+        <span class="lbl">Fin d’après-midi</span>
+        <span class="big">9–10<small>°C</small></span>
+        <span class="sub">Ciel voilé, vent faible, pluie à 3–13 %</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 17 h16 M8 21 h10"/><path d="M7 13 a6 6 0 0 1 12 0"/></svg>
+        <span class="lbl">Soirée et nuit</span>
+        <span class="big">8<small>°C</small></span>
+        <span class="sub">Nuageux, pluie jusqu’à 33 % vers 21h–22h</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 10 h14 a3 3 0 1 0 -3 -3"/><path d="M3 15 h18 a3 3 0 1 1 -3 3"/><path d="M3 20 h8"/></svg>
+        <span class="lbl">Demain, jeudi</span>
+        <span class="big">7–10<small>°C</small></span>
+        <span class="sub">Pluie jusqu’à 90 %, rafales d’ouest à 36 km/h</span>
+      </div>
+    </div>
+    <p>Le temps reste doux et calme jusqu’à la nuit ; la pluie s’installe demain dès 6h, surtout entre 10h et 12h (près de 4 mm attendus sur la journée), avec des éclaircies en fin d’après-midi, <a href="https://open-meteo.com/">selon Open-Meteo</a>.</p>
+  </section>
 
   <section>
     <h2>Actualités du jour</h2>
     <div class="une">
-      <span class="tag">À la une · France</span>
-      <span class="t">Un préfet démis après des soupçons de fuites vers le RN</span>
-      <p>Hugues Moutouh est officiellement remplacé par le préfet Pierre Ory, après l’ouverture d’une enquête sur des fuites d’éléments judiciaires venues du ministère de l’Intérieur, <a href="https://www.franceinfo.fr/politique/front-national/enquete-sur-des-soupcons-de-fuites-vers-le-rn-hugues-moutouh-a-ete-officiellement-demis-de-ses-fonctions-remplace-par-le-prefet-pierre-ory_8299428.html">selon franceinfo</a>.</p>
+      <span class="tag">À la une · Monde</span>
+      <span class="t">Washington annonce de nouveaux droits de douane contre ses grands partenaires</span>
+      <p>L’Union européenne, la Chine et le Mexique sont visés par cette nouvelle surtaxe ; Bruxelles dit la contester « fermement », <a href="https://www.franceinfo.fr/monde/usa/droits-de-douane/les-etats-unis-annoncent-de-nouveaux-droits-de-douane-contre-leurs-principaux-partenaires-commerciaux_8299734.html">selon franceinfo</a>.</p>
     </div>
     <ol class="news">
-      <li><div><span class="tag">France</span><span class="t">David Lisnard réélu à la tête des maires de France</span>
-        Le candidat à la présidentielle 2027 l’emporte avec 72 % des voix face à Philippe Laurent et entame un troisième mandat, <a href="https://www.franceinfo.fr/elections/direct-presidentielle-2027-lance-dans-la-course-a-l-elysee-david-lisnard-fixe-dans-la-journee-sur-sa-reelection-a-la-tete-de-l-association-des-maires-de-france_8298708.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">Puigdemont rentrera en Espagne le 12 décembre</span>
-        Définitivement blanchi par le Tribunal suprême, l’indépendantiste catalan met fin à neuf ans d’exil, <a href="https://www.france24.com/fr/europe/20261125-l-ind%C3%A9pendantiste-catalan-carles-puigdemont-annonce-son-retour-en-espagne-apr%C3%A8s-neuf-ans-d-exil">rapporte France 24</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Grève surprise à Eurostar entre Paris et Londres</span>
-        Le trafic est fortement perturbé dans les deux sens ; les syndicats dénoncent des conditions de travail dégradées et des salaires qui stagnent, <a href="https://www.franceinfo.fr/economie/transports/le-trafic-des-trains-eurostar-entre-londres-et-paris-fortement-perturbe-en-raison-d-une-greve-imprevue_8299053.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Nouvel épisode méditerranéen dans le Var</span>
-        Routes coupées et cours d’eau qui débordent depuis minuit ; le Var et les Alpes-Maritimes sont en vigilance, <a href="https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/var/saint-tropez/routes-coupees-cours-d-eau-qui-debordent-etat-des-lieux-de-l-episode-mediterraneen-dans-le-var-3455510.html">d’après franceinfo</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">L’ONU redoute de nouveaux « crimes atroces » à Gaza et en Cisjordanie</span>
-        Le Haut-Commissariat aux droits de l’homme décrit des violations de plus en plus généralisées et systématiques dans les deux territoires, <a href="https://www.franceinfo.fr/monde/proche-orient/guerre/l-onu-alerte-sur-le-risque-de-nouveaux-crimes-atroces-d-israel-contre-les-palestiniens-a-gaza-et-en-cisjordanie_8299557.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">La Cour des comptes épingle l’apprentissage</span>
-        Entre 10 % et 20 % de l’argent public dépensé dans ces formations serait exposé à des risques de fraude ou d’abus, <a href="https://www.franceinfo.fr/economie/emploi/la-cour-des-comptes-epingle-des-fraudes-et-des-abus-dans-les-formations-en-apprentissage_8299608.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Au Sénat, un vote inattendu sur les retraités</span>
-        Contre l’avis du gouvernement, une partie de la droite et du centre droit s’oppose, avec la gauche et l’extrême droite, à la suppression totale d’un abattement fiscal, <a href="https://www.lemonde.fr/politique/article/2026/11/25/budget-2027-au-senat-un-vote-inattendu-sur-la-mise-a-contribution-des-retraites_6815088_823448.html">rapporte Le Monde</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">L’Europe veut un fonds de 50 milliards pour le quantique et l’IA</span>
-        L’Union européenne a de l’avance en recherche mais peine à la transformer en activité commerciale, <a href="https://www.lemonde.fr/international/article/2026/11/25/l-union-europeenne-veut-creer-un-fonds-souverain-de-50-milliards-d-euros-pour-investir-dans-l-informatique-quantique-et-l-intelligence-artificielle_6815093_3210.html">selon Le Monde</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">129 femmes tuées chaque jour par un proche</span>
-        Un rapport de l’ONU chiffre à quelque 47 000 les femmes et filles tuées par des proches en 2025, en cette journée contre les violences faites aux femmes, <a href="https://www.france24.com/fr/france/20261125-violences-vss-129-femmes-tu%C3%A9es-proche-chaque-jour-monde-2025">selon France 24</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Lisnard réélu à la tête des maires de France</span>
+        Le maire de Cannes, candidat à la présidentielle, obtient un troisième mandat à l’AMF, <a href="https://www.rfi.fr/fr/france/20261125-david-lisnard-candidat-%C3%A0-la-pr%C3%A9sidentielle-r%C3%A9%C3%A9lu-%C3%A0-la-t%C3%AAte-de-l-association-des-maires-de-france">selon RFI</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Budget 2027 : Lecornu parle de compromis</span>
+        Le Premier ministre dit ne pas vouloir de passage en force, tout en laissant entendre qu’il pourrait recourir au 49.3 plutôt qu’aux ordonnances, <a href="https://www.franceinfo.fr/economie/budget/sebastien-lecornu-n-a-pas-de-volonte-de-passage-en-force-et-appelle-au-compromis-pour-faire-adopter-le-budget-2027_8299881.html">d’après franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">La Côte d’Azur de nouveau sous les eaux</span>
+        Le Var et les Alpes-Maritimes restent en vigilance orange ; des routes sont inondées et plusieurs écoles fermées, <a href="https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/inondations-et-crues/la-cote-d-azur-sous-les-eaux-des-sacs-de-sable-au-paddle-les-habitants-d-une-commune-du-var-tentent-de-faire-avec-les-inondations_8299611.html">rapporte franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Un préfet démis après des soupçons de fuites vers le RN</span>
+        Hugues Moutouh est remplacé par le préfet Pierre Ory, après l’ouverture d’une enquête sur des fuites venues du ministère de l’Intérieur, <a href="https://www.franceinfo.fr/politique/front-national/enquete-sur-des-soupcons-de-fuites-vers-le-rn-hugues-moutouh-a-ete-officiellement-demis-de-ses-fonctions-remplace-par-le-prefet-pierre-ory_8299428.html">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Israël : feu vert préliminaire à une enquête sur le 7-Octobre</span>
+        La Knesset approuve en lecture préliminaire une commission d’enquête, en pleines tractations pour former un gouvernement, <a href="https://www.lemonde.fr/international/article/2026/11/25/7-octobre-en-israel-la-knesset-approuve-en-lecture-preliminaire-la-creation-d-une-commission-d-enquete_6815104_3210.html">d’après Le Monde</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">L’ONU craint de nouveaux « crimes atroces » à Gaza et en Cisjordanie</span>
+        Le Haut-Commissariat aux droits de l’homme dénonce des violations « de plus en plus généralisées et systématiques », <a href="https://www.franceinfo.fr/monde/proche-orient/guerre/l-onu-alerte-sur-le-risque-de-nouveaux-crimes-atroces-d-israel-contre-les-palestiniens-a-gaza-et-en-cisjordanie_8299557.html">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Haïti : le grand stade de Port-au-Prince repris aux gangs</span>
+        Le Salvador a envoyé 2 000 soldats en octobre ; l’opération marque un tournant dans la lutte contre les gangs, <a href="https://www.franceinfo.fr/monde/ameriques/nayib-bukele-je-l-aime-de-tout-mon-c-ur-a-port-au-prince-l-emblematique-stade-aux-mains-des-gangs-a-ete-libere-grace-aux-salvadoriens_8299713.html">rapporte franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Eurostar : trafic très perturbé par une grève imprévue</span>
+        Les syndicats dénoncent des conditions de travail dégradées et des salaires qui stagnent, dans les deux sens entre Londres et Paris, <a href="https://www.franceinfo.fr/economie/transports/le-trafic-des-trains-eurostar-entre-londres-et-paris-fortement-perturbe-en-raison-d-une-greve-imprevue_8299053.html">d’après franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">BYD en passe de s’offrir une usine en Moselle</span>
+        À Hambach, le constructeur chinois aurait là sa première usine d’Europe de l’Ouest, <a href="https://www.franceinfo.fr/economie/automobile/la-marque-de-voitures-chinoises-byd-veut-produire-en-france_8299761.html">selon franceinfo</a>.</div></li>
     </ol>
   </section>
 
@@ -238,13 +271,25 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <h2>Sport</h2>
     <div class="scores">
       <div class="score">
-        <p class="score-note" style="text-align:left;margin:0"><span class="t">PSG – AS Rome, ce soir à 21h</span>Luis Enrique a convoqué 23 joueurs pour la 5e journée de la phase de ligue de la Ligue des champions ; Lucas Digne, écarté samedi, est du groupe, <a href="https://www.lequipe.fr/Football/Actualites/Le-groupe-du-psg-pour-la-reception-de-l-as-rome-en-ligue-des-champions-devoile-lucas-digne-en-fait-partie/1746003">selon L’Équipe</a>.</p>
+        <span class="team r">PSG</span>
+        <span class="sc big" style="font-size:20px">ce soir</span>
+        <span class="team l">AS Rome</span>
+        <p class="score-note">Ligue des champions : le PSG joue sans Doué ni Kvaratskhelia, absents jusqu’à la fin du printemps au moins, et Luis Enrique parle d’un « beau défi », <a href="https://www.franceinfo.fr/sports/foot/psg/vous-pensez-qu-on-va-se-mettre-a-pleurer-luis-enrique-garde-confiance-en-son-equipe-avant-psg-as-rome-malgre-les-blessures-serieuses-de-doue-et-kvaratskhelia_8298276.html">selon franceinfo</a>.</p>
       </div>
       <div class="score">
-        <p class="score-note" style="text-align:left;margin:0"><span class="t">Le Sénégal sacré à la CAN par le TAS</span>Le Tribunal arbitral du sport a déclaré mardi le Sénégal vainqueur de la CAN 2025 au détriment du Maroc, et la Confédération africaine de football dit respecter la décision, <a href="https://www.franceinfo.fr/sports/foot/can/direct-senegal-vainqueur-de-la-can-le-tribunal-arbitral-du-sport-a-rendu-justice-au-sport-estime-le-president-de-la-federation-senegalaise_8298138.html">d’après franceinfo</a>.</p>
+        <span class="team r">Lille</span>
+        <span class="sc big" style="font-size:20px">ce soir</span>
+        <span class="team l">Bayern Munich</span>
+        <p class="score-note">Les Munichois se déplacent sans Harry Kane, blessé à la cheville pour plusieurs mois, ni Michael Olise ; Lens, battu mardi à Leipzig, enchaîne une quatrième défaite, <a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/en-l-absence-d-harry-kane-et-michael-olise-un-coup-a-jouer-en-ligue-des-champions-pour-le-losc-face-a-un-bayern-diminue_8297979.html">d’après franceinfo</a>.</p>
       </div>
       <div class="score">
-        <p class="score-note" style="text-align:left;margin:0"><span class="t">Lens battu à Leipzig</span>Une entame ratée plombe les Lensois, qui subissent mardi une quatrième défaite en Ligue des champions malgré une meilleure copie qu’à Côme, <a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/plombe-par-une-entame-ratee-lens-s-incline-a-leipzig-et-enchaine-une-quatrieme-defaite-en-ligue-des-champions_8298393.html">selon franceinfo</a>.</p>
+        <span class="team r">Sénégal</span>
+        <span class="sc big" style="font-size:20px">CAN</span>
+        <span class="team l">Maroc</span>
+        <p class="score-note">Le Tribunal arbitral du sport donne le titre au Sénégal ; le Maroc, déchu, passe de la 5e à la 7e place du classement FIFA, <a href="https://www.lequipe.fr/Football/Actualites/Le-maroc-sort-du-top-5-au-classement-fifa-apres-la-perte-du-titre-de-champion-d-afrique/1746060">d’après L’Équipe</a>.</p>
+      </div>
+      <div class="score">
+        <p class="score-note" style="grid-column:1/-1;text-align:left;margin:0"><span class="t">Tennis : Rinderknech accusé d’avoir refusé un contrôle antidopage</span>L’agence antidopage confirme que le 57e mondial est inculpé ; il se dit « convaincu » d’être innocenté, <a href="https://www.franceinfo.fr/sports/tennis/je-suis-convaincu-que-je-serai-innocente-arthur-rinderknech-rejette-les-accusations-de-refus-de-se-soumettre-a-un-controle-antidopage_8298981.html">selon franceinfo</a>.</p>
       </div>
     </div>
   </section>
@@ -254,32 +299,32 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <div class="themes">
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="2"/><ellipse cx="13" cy="13" rx="10" ry="4"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(60 13 13)"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(120 13 13)"/></svg>Sciences</header>
-        <article><span class="tag">Physique</span><span class="t">Un indice de désintégration rarissime au LHCb</span>
-          Le détecteur a dévoilé des indices probants d’une désintégration du méson B0, traquée depuis plus de 40 ans. Une confirmation expérimentale est envisagée, <a href="https://www.sciencesetavenir.fr/fondamental/particules/les-physiciens-ouvrent-la-voie-a-la-decouverte-de-nouvelles-particules-avec-l-experience-lhcb_196088?xtor=RSS-10">selon Sciences et Avenir</a>.</article>
-        <article><span class="tag">Archéologie</span><span class="t">La plus vieille épave connue, au large de la Turquie</span>
-          Une cargaison du début de l’âge du bronze a été identifiée. Il s’agirait de la plus vieille épave jamais découverte, <a href="https://www.sciencesetavenir.fr/archeo-paleo/une-decouverte-exceptionnelle-une-epave-vieille-de-plus-de-4-000-ans-retrouvee-en-mer_196263?xtor=RSS-4">d’après Sciences et Avenir</a>.</article>
+        <article><span class="tag">Archéologie</span><span class="t">Une épave de 4 000 ans au large de la Turquie</span>
+          Une cargaison du début de l’âge du bronze a été identifiée, et il pourrait s’agir de la plus vieille épave jamais découverte, <a href="https://www.sciencesetavenir.fr/archeo-paleo/une-decouverte-exceptionnelle-une-epave-vieille-de-plus-de-4-000-ans-retrouvee-en-mer_196263">d’après Sciences et Avenir</a>.</article>
+        <article><span class="tag">Physique</span><span class="t">Une désintégration rarissime en vue au LHCb</span>
+          Après plus de 40 ans de chasse, le détecteur a dévoilé des indices probants de la désintégration du méson B0 ; une confirmation expérimentale reste attendue, <a href="https://www.sciencesetavenir.fr/fondamental/particules/les-physiciens-ouvrent-la-voie-a-la-decouverte-de-nouvelles-particules-avec-l-experience-lhcb_196088">selon Sciences et Avenir</a>.</article>
+        <article><span class="tag">Climat</span><span class="t">La COP31 se termine sans accord</span>
+          Les plus longues négociations climatiques de l’ONU s’achèvent sur de profondes divisions, que la Première ministre australienne, co-hôte, attribue à des « temps géopolitiques difficiles », <a href="https://www.bbc.co.uk/news/articles/cqwy06zrd26lo">rapporte la BBC</a>.</article>
         <article><span class="tag">Biologie</span><span class="t">Pourquoi les femmes cicatrisent plus vite</span>
-          Le renouvellement des cellules souches de la peau est mieux coordonné sous l’effet des œstrogènes. L’explication touche à un mécanisme de base de la réparation cutanée, <a href="https://www.sciencesetavenir.fr/sante/pourquoi-les-femmes-cicatrisent-plus-vite_196255?xtor=RSS-16">selon Sciences et Avenir</a>.</article>
-        <article><span class="tag">Atmosphère</span><span class="t">Artemis-2 a secoué l’ionosphère</span>
-          Le lancement du 1er avril a perturbé cette haute couche de l’atmosphère autant qu’une éruption volcanique majeure, à cause des ondes acoustiques de la fusée. Cette couche protège la Terre, <a href="https://www.lemonde.fr/sciences/article/2026/11/24/une-mission-vers-la-lune-perturbe-l-ionosphere-autant-qu-une-eruption-volcanique-majeure_6814820_1650684.html">selon Le Monde</a>.</article>
+          Le renouvellement des cellules souches de la peau est mieux coordonné sous l’effet des œstrogènes, <a href="https://www.sciencesetavenir.fr/sante/pourquoi-les-femmes-cicatrisent-plus-vite_196255">explique Sciences et Avenir</a>.</article>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 22 h20"/><path d="M4 17 l5 -5 l4 3 l8 -9"/><path d="M16 6 h5 v5"/></svg>Économie</header>
-        <article><span class="tag">Matières premières</span><span class="t">La RDC interdit de nouveau d’exporter son cobalt</span>
-          Dans un contexte de baisse des prix, le pays veut faire remonter les cours, alors que la Chine contrôle presque toute la transformation. Un premier embargo avait été remplacé par des quotas, <a href="https://www.lemonde.fr/afrique/article/2026/11/25/la-rdc-impose-un-nouvel-embargo-sur-les-exportations-de-cobalt-pour-faire-monter-les-cours_6815079_3212.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Entreprises</span><span class="t">Sanofi rachète Insmed pour 37,6 milliards d’euros</span>
-          C’est la plus grosse acquisition de l’histoire du laboratoire français. Le groupe renforce ainsi sa présence aux États-Unis, <a href="https://www.franceinfo.fr/sante/medicament/le-groupe-pharmaceutique-francais-sanofi-va-racheter-l-americain-insmed-pour-37-6-milliards-d-euros_8297424.html">selon franceinfo</a>.</article>
+        <article><span class="tag">Industrie</span><span class="t">Sanofi rachète Insmed pour 37,6 milliards d’euros</span>
+          L’opération, l’une des plus grosses de Sanofi, devrait être finalisée au premier semestre 2027, <a href="https://www.lemonde.fr/economie/article/2026/11/24/sanofi-groupe-pharmaceutique-francais-va-racheter-l-americain-insmed-pour-37-6-milliards-d-euros_6814719_3234.html">selon Le Monde</a>.</article>
+        <article><span class="tag">Concurrence</span><span class="t">Près d’un demi-milliard d’amendes pour le cartel des parfums</span>
+          Bruxelles reproche à Firmenich, Givaudan et IFF d’avoir partagé des secrets commerciaux et coordonné des tarifs, <a href="https://www.lemonde.fr/economie/article/2026/11/25/cartel-des-parfums-l-ue-inflige-pres-d-un-demi-milliard-d-euros-d-amendes-a-trois-industriels-du-secteur_6815122_3234.html">d’après Le Monde</a>.</article>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="7" width="12" height="12" rx="1.5"/><rect x="10.5" y="10.5" width="5" height="5"/><path d="M10 7 V3 M16 7 V3 M10 23 v-4 M16 23 v-4 M7 10 H3 M7 16 H3 M23 10 h-4 M23 16 h-4"/></svg>IA</header>
-        <article><span class="tag">Entreprises</span><span class="t">Les IA chinoises gagnent les entreprises</span>
-          Moins coûteux et installables sur des serveurs propres, les modèles ouverts de DeepSeek, Moonshot AI, Z.ai ou Alibaba grignotent des parts de marché. Anthropic et OpenAI sont sous pression, <a href="https://www.lemonde.fr/economie/article/2026/11/25/le-succes-des-ia-chinoises-aupres-des-entreprises-met-les-leaders-anthropic-et-openai-sous-pression_6815050_3234.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Recherche</span><span class="t">Les labos français s’organisent pour l’IA</span>
-          Les chercheurs du CNRS ont obtenu une dérogation pour recourir à OpenAI et Anthropic. Une infrastructure mutualise aussi les ressources de plus de vingt établissements universitaires, <a href="https://www.lemonde.fr/sciences/article/2026/11/23/comment-les-laboratoires-francais-organisent-l-acces-de-leurs-chercheurs-a-l-ia_6814358_1650684.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Régulation</span><span class="t">Washington veut blacklister Megaspeed</span>
-          L’entreprise asiatique est accusée d’avoir fait transiter des puces d’IA vers la Chine, après l’affaire née autour de Jensen Huang, <a href="https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo?at_medium=RSS&amp;at_campaign=rss">selon la BBC</a>. Ce dernier a été réintégré lundi à la tête de Nvidia, <a href="https://www.lemonde.fr/international/video/2026/11/24/jensen-huang-de-retour-a-la-tete-de-nvidia-sous-l-influence-de-donald-trump_6814742_3210.html">d’après Le Monde</a>.</article>
-        <article><span class="tag">Société</span><span class="t">Tidal bannit la musique générée par IA</span>
-          La plateforme a supprimé 29 millions de morceaux et annonce un bannissement total de ces contenus, qui l’inondaient, <a href="https://www.01net.com/actualites/29-millions-de-morceaux-supprimes-tidal-bannit-la-musique-generee-par-ia.html">selon 01net</a>.</article>
+        <article><span class="tag">Produit</span><span class="t">Meta Muse arrive au Royaume-Uni</span>
+          La BBC l’a testé une semaine : Meta veut faire pour l’IA ce que WhatsApp a fait pour la messagerie, avec un assistant utile mais parfois maladroit, <a href="https://www.bbc.co.uk/news/articles/c9gkld2l38y6o">raconte la BBC</a>.</article>
+        <article><span class="tag">Recherche</span><span class="t">Le graphe le plus mal compris de l’IA est mis à jour</span>
+          Un rapport de METR confirme une progression exponentielle de certaines capacités, mais des modèles moins à l’aise sur les tâches longues, <a href="https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/">selon MIT Technology Review</a>.</article>
+        <article><span class="tag">Entreprises</span><span class="t">Les IA chinoises grignotent le marché</span>
+          Moins coûteux et installables sur les serveurs des entreprises, les modèles ouverts de DeepSeek, Moonshot AI, Z.ai ou Alibaba mettent Anthropic et OpenAI sous pression, <a href="https://www.lemonde.fr/economie/article/2026/11/25/le-succes-des-ia-chinoises-aupres-des-entreprises-met-les-leaders-anthropic-et-openai-sous-pression_6815050_3234.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Société</span><span class="t">Triche à l’IA : le ministre sud-coréen de l’Éducation démissionne</span>
+          Le scandale a éclaté quelques jours avant le Suneung, l’examen qui conditionne l’accès à l’université, <a href="https://www.lemonde.fr/international/article/2026/11/22/scandale-de-triche-a-l-ia-en-coree-du-sud-sous-pression-le-ministre-de-l-education-demissionne_6814190_3210.html">rapporte Le Monde</a>.</article>
       </div>
     </div>
   </section>
@@ -288,22 +333,22 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <h2>Espace et aéronautique</h2>
     <div class="themes two">
       <div class="theme">
-        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3 c4 3 5 8 4 13 h-8 c-1 -5 0 -10 4 -13 z"/><circle cx="13" cy="10" r="1.6"/><path d="M9 16 l-3 4 h4 M17 16 l3 4 h-4"/><path class="warm" d="M11.5 20 l1.5 3 l1.5 -3"/></svg>EspaceEspace</header>
-        <article><span class="tag">Mission</span><span class="t">BepiColombo en orbite autour de Mercure</span>
-          Après huit ans de voyage, la mission européo-japonaise est entrée en orbite ; ses deux sondes doivent se séparer pour étudier la planète et son champ magnétique, <a href="https://www.sciencesetavenir.fr/espace/exploration/la-mission-bepicolombo-est-entree-dans-l-orbite-de-mercure-apres-huit-ans-de-voyage_196351?xtor=RSS-9">selon Sciences et Avenir</a>.</article>
-        <article><span class="tag">Vols habités</span><span class="t">Un premier astronaute pakistanais dans l’espace</span>
-          Muhammad Zeeshan Ali est le premier étranger d’une mission spatiale chinoise, lancée mercredi avec Shenzhou-24. Sa sélection marque une étape dans les relations entre Islamabad et Pékin, <a href="https://www.franceinfo.fr/sciences/espace/le-premier-astronaute-etranger-d-une-mission-spatiale-chinoise-decolle-mercredi_8297289.html">selon franceinfo</a>.</article>
-        <article><span class="tag">Lanceurs</span><span class="t">Alpha Impulsion s’installe à Toulouse</span>
-          Le microlanceur de cette start-up veut diviser par six les coûts de mise en orbite des satellites. Elle prépare une levée de fonds, <a href="https://www.ladepeche.fr/2026/11/24/avec-sa-fusee-revolutionnaire-alpha-impulsion-demenage-a-toulouse-et-prepare-une-levee-de-fonds-pour-semparer-du-marche-des-lanceurs-13658813.php">selon La Dépêche du Midi</a>.</article>
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3 c4 3 5 8 4 13 h-8 c-1 -5 0 -10 4 -13 z"/><circle cx="13" cy="10" r="1.6"/><path d="M9 16 l-3 4 h4 M17 16 l3 4 h-4"/><path class="warm" d="M11.5 20 l1.5 3 l1.5 -3"/></svg>Espace</header>
+        <article><span class="tag">Mission habitée</span><span class="t">Un premier astronaute pakistanais à bord de Shenzhou-24</span>
+          Muhammad Zeeshan Ali, ancien pilote de chasse, est le premier étranger à rejoindre une mission spatiale habitée chinoise, <a href="https://www.bbc.co.uk/news/articles/c6x2e0j3kx28o">selon la BBC</a>.</article>
+        <article><span class="tag">Exploration</span><span class="t">BepiColombo en orbite autour de Mercure</span>
+          Après huit ans de voyage, les deux sondes de la mission européo-japonaise vont se séparer pour étudier la planète et son champ magnétique, <a href="https://www.sciencesetavenir.fr/espace/exploration/la-mission-bepicolombo-est-entree-dans-l-orbite-de-mercure-apres-huit-ans-de-voyage_196351">d’après Sciences et Avenir</a>.</article>
+        <article><span class="tag">Défense planétaire</span><span class="t">Premières images rapprochées de Dimorphos</span>
+          L’ESA dévoile aujourd’hui les premiers clichés pris par la sonde Hera de l’astéroïde percuté par la mission DART de la NASA, <a href="https://www.space.com/space-exploration/asteroid-comet-missions/watch-live-europe-unveils-1st-close-up-views-of-asteroid-dimorphos-after-nasas-dart-impact">selon Space.com</a>.</article>
       </div>
       <div class="theme">
-        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 14 l20 -6 c1 -0.3 1.6 1.2 0.6 1.7 L5 18 z"/><path d="M10 12 l-3 -6 h3 l6 4.5"/><path d="M8 16.5 l1 4 h2.5 l2 -6"/></svg>AéronautiqueAéronautique</header>
-        <article><span class="tag">Toulouse</span><span class="t">350 millions d’euros d’aides pour l’aéronautique</span>
-          Emmanuel Macron l’a annoncé lundi depuis les usines Airbus de Toulouse (<a href="https://www.ladepeche.fr/2026/11/23/direct-emmanuel-macron-a-toulouse-le-chef-de-letat-en-visite-sur-le-site-dairbus-durant-toute-la-matinee-13666690.php">replay de La Dépêche du Midi</a>). L’Occitanie est aussi troisième région de Choose France, avec 25 projets pour plus de 2 milliards d’euros, <a href="https://www.ladepeche.fr/2026/11/23/choose-france-la-liste-des-25-projets-pour-plus-de-2-milliards-deuros-dinvestissements-en-occitanie-13666217.php">selon La Dépêche du Midi</a>.</article>
-        <article><span class="tag">Toulouse</span><span class="t">Airbus prépare sa future usine près de Toulouse</span>
-          Le site « Saint-Éloi du futur », à Cornebarrieu, doit accueillir 3 500 salariés dans les 10 prochaines années. Le maire anticipe un réseau de bus revu avec l’arrivée du métro, <a href="https://www.ladepeche.fr/2026/11/23/future-usine-airbus-pres-de-toulouse-avec-larrivee-du-metro-le-reseau-de-bus-va-etre-revu-comment-le-maire-de-cornebarrieu-prepare-larrivee-de-3500-13663459.php">selon La Dépêche du Midi</a>.</article>
-        <article><span class="tag">Défense</span><span class="t">Des Rafale posés sur une route en Finlande</span>
-          Des appareils de la base de Mont-de-Marsan ont posé leur train principal sur une route nationale avant de redécoller, lors d’un entraînement, <a href="https://www.ladepeche.fr/2026/11/24/scene-spectaculaire-mais-bien-reelle-des-rafale-de-larmee-de-lair-sentrainent-a-se-poser-sur-une-route-nationale-en-finlande-13668655.php">selon La Dépêche du Midi</a>.</article>
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 14 l20 -6 c1 -0.3 1.6 1.2 0.6 1.7 L5 18 z"/><path d="M10 12 l-3 -6 h3 l6 4.5"/><path d="M8 16.5 l1 4 h2.5 l2 -6"/></svg>Aéronautique</header>
+        <article><span class="tag">Recherche</span><span class="t">350 millions d’euros « sanctuarisés » pour la recherche aéronautique</span>
+          En visite chez Airbus à Toulouse lundi, Emmanuel Macron a garanti le maintien de l’enveloppe pour la recherche civile, une demande forte de la filière, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/on-va-sanctuariser-depuis-airbus-a-toulouse-emmanuel-macron-garantit-350-millions-d-euros-a-la-recherche-aeronautique-3454455.html">selon France 3 Occitanie</a>.</article>
+        <article><span class="tag">Commandes</span><span class="t">Air Europa commande jusqu’à 40 A350</span>
+          Les avions sont assemblés à Toulouse, mais la compagnie saisit la justice espagnole : selon elle, les terminaux de l’aéroport de Madrid sont trop petits pour tous les accueillir, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/airbus-a350-40-avions-commandes-a-toulouse-mais-un-aeroport-de-madrid-trop-petit-pour-les-faire-voler-a-plein-3455489.html">explique France 3 Occitanie</a>.</article>
+        <article><span class="tag">Aéroport</span><span class="t">Ryanair ouvre deux lignes depuis Toulouse-Blagnac</span>
+          Shannon et Bournemouth seront desservies deux fois par semaine dès le printemps, <a href="https://www.ladepeche.fr/2026/11/18/toulouse-blagnac-ryanair-ouvre-deux-nouvelles-lignes-cet-ete-a-destination-de-lirlande-et-de-langleterre-13658877.php">selon La Dépêche du Midi</a>.</article>
       </div>
     </div>
   </section>
@@ -315,16 +360,16 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 9 h12 a3 3 0 1 0 -3 -3"/><path d="M3 14 h17 a3 3 0 1 1 -3 3"/><path class="warm" d="M3 19 h7"/></svg>Air à Toulouse</header>
         <span class="lbl">Indice européen, pic des prochaines heures</span>
         <span class="big air">48<small> · moyen</small></span>
-        <span class="sub">Pic à 20h, dominé par le dioxyde d’azote ; le moment le plus sain pour sortir est entre 14h et 16h (indice 21 à 24), <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
+        <span class="sub">Pic à 20h, dominé par le dioxyde d’azote ; le créneau le plus sain est maintenant, jusqu’à 17h environ (indice 21), puis demain dès 4h, <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
       </div>
       <div class="theme">
-        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22 c-6 -4 -9 -8 -9 -12 a4.5 4.5 0 0 1 9 -1.5 a4.5 4.5 0 0 1 9 1.5 c0 4 -3 8 -9 12 z"/><path class="warm" d="M7 13 h3 l1.5 -3 l2 5 l1.5 -2 h4"/></svg>SantéSanté</header>
-        <article><span class="tag">VIH</span><span class="t">Le financement de la lutte contre le sida recule</span>
-          Selon Onusida, les programmes ont perdu 18 % de leurs financements internationaux en 2025, surtout en Afrique. Le nombre de malades baisse pourtant, mais la recherche et la prévention en pâtissent, <a href="https://www.franceinfo.fr/sante/sida/malgre-un-nombre-de-malades-du-sida-en-baisse-l-onu-alerte-sur-les-difficultes-financieres-pour-la-recherche-et-la-prevention_8297634.html">d’après franceinfo</a>.</article>
-        <article><span class="tag">Dépistage</span><span class="t">Le NHS teste l’IA contre le cancer du sein</span>
-          Près de 700 000 femmes devraient participer à l’expérimentation, alors que les radiologues manquent, <a href="https://www.franceinfo.fr/sante/cancer/il-y-a-un-deficit-important-de-radiologues-le-royaume-uni-lance-une-experimentation-de-depistage-du-cancer-du-sein-a-grande-echelle-assistee-par-l-ia_8297310.html">selon franceinfo</a>.</article>
-        <article><span class="tag">Alerte</span><span class="t">Du CBD mêlé à des drogues de synthèse</span>
-          Certaines boutiques vendent illégalement des produits contenant des drogues de synthèse sous l’étiquette CBD, ce qui a poussé les autorités sanitaires à alerter, <a href="https://www.franceinfo.fr/sante/cbd/alerte-au-cbd-ultratoxique_8298198.html">d’après franceinfo</a>.</article>
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22 c-6 -4 -9 -8 -9 -12 a4.5 4.5 0 0 1 9 -1.5 a4.5 4.5 0 0 1 9 1.5 c0 4 -3 8 -9 12 z"/><path class="warm" d="M7 13 h3 l1.5 -3 l2 5 l1.5 -2 h4"/></svg>Santé</header>
+        <article><span class="tag">Addictions</span><span class="t">L’alcool : plus de tests chez les mineurs</span>
+          L’Observatoire français des drogues note que l’expérimentation progresse chez collégiens et lycéens, alors que les autres usages reculent, y compris chez les adultes, <a href="https://www.lemonde.fr/societe/article/2026/11/24/alcool-l-experimentation-en-hausse-chez-les-collegiens-et-les-lyceens-les-autres-usages-regressent-y-compris-chez-les-adultes_6814822_3224.html">d’après Le Monde</a>.</article>
+<article><span class="tag">Épidémie</span><span class="t">Sida : les financements internationaux chutent de 18 %</span>
+          Les décès sont à leur plus bas depuis plus de vingt ans, mais Onusida alerte sur les coupes, surtout en Afrique, <a href="https://www.franceinfo.fr/sante/sida/malgre-un-nombre-de-malades-du-sida-en-baisse-l-onu-alerte-sur-les-difficultes-financieres-pour-la-recherche-et-la-prevention_8297634.html">selon franceinfo</a>.</article>
+<article><span class="tag">Hôpital</span><span class="t">Cyberattaque au CHU de Guadeloupe</span>
+          Le plan blanc est déclenché, seules les urgences sont traitées et le personnel est revenu au papier, pendant qu’une enquête est ouverte, <a href="https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/cyberattaque-au-chu-de-guadeloupe-le-personnel-de-retour-au-stylo-et-au-papier-pour-faire-tourner-l-etablissement_8297442.html">rapporte franceinfo</a>.</article>
       </div>
     </div>
   </section>
@@ -333,13 +378,13 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <h2>Culture</h2>
     <div class="themes culture">
       <div class="theme"><article><span class="tag">Cinéma</span><span class="t">« Paper Tiger », de James Gray</span>
-        Le récit d’une lente dislocation familiale, avec Scarlett Johansson, Adam Driver et Miles Teller, <a href="https://www.lemonde.fr/culture/article/2026/11/24/paper-tiger-le-cineaste-james-gray-livre-le-recit-captivant-d-une-lente-dislocation-familiale_6814821_3246.html">selon Le Monde</a>.</article></div>
-      <div class="theme"><article><span class="tag">Expo à Toulouse</span><span class="t">Layup prolonge son street art</span>
-        L’exposition de 5 000 m² et 70 artistes a attiré près de 70 000 visiteurs en six semaines et repousse sa fermeture, <a href="https://www.ladepeche.fr/2026/11/25/exclusif-cest-la-folie-layup-repousse-la-fermeture-de-son-exposition-geante-de-street-art-a-toulouse-et-attire-les-foules-deja-70-000-visiteurs-en-six-13667430.php">selon La Dépêche du Midi</a>.</article></div>
-      <div class="theme"><article><span class="tag">Livres</span><span class="t">Prix Penser le travail 2026</span>
-        Décerné ce mercredi, il oppose Marion Flécher, Maud Simonet et Clément Pouré, <a href="https://www.lemonde.fr/vie-au-travail/article/2026/11/25/prix-penser-le-travail-2026-les-nouveaux-visages-de-la-subordination-des-salaries_6815051_6768900.html">selon Le Monde</a>.</article></div>
-      <div class="theme"><article><span class="tag">Musique</span><span class="t">Garou au casino Barrière de Toulouse</span>
-        Un concert intimiste devant 1 200 spectateurs mardi soir, donné deux soirs d’affilée, <a href="https://www.ladepeche.fr/2026/11/25/reportage-jadore-sa-voix-facon-joe-cocker-garou-rallume-la-flamme-de-ses-plus-grands-succes-deux-soirs-daffilee-au-casino-barriere-13669586.php">selon La Dépêche du Midi</a>.</article></div>
+        Un récit de lente dislocation familiale porté par Scarlett Johansson, Adam Driver et Miles Teller, sorti cette semaine, <a href="https://www.lemonde.fr/culture/article/2026/11/24/paper-tiger-le-cineaste-james-gray-livre-le-recit-captivant-d-une-lente-dislocation-familiale_6814821_3246.html">selon Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Expo à Toulouse</span><span class="t">Layup, le street art en grand</span>
+        L’exposition de 5 000 m² et 70 artistes repousse sa fermeture après près de 70 000 visiteurs, <a href="https://www.ladepeche.fr/2026/11/25/exclusif-cest-la-folie-layup-repousse-la-fermeture-de-son-exposition-geante-de-street-art-a-toulouse-et-attire-les-foules-deja-70-000-visiteurs-en-six-13667430.php">d’après La Dépêche du Midi</a>.</article></div>
+      <div class="theme"><article><span class="tag">Livres</span><span class="t">Le « Journal spirituel » du pape François</span>
+        Trente-deux ans de réflexions du pape argentin, publiées chez Albin Michel et disponibles en français depuis aujourd’hui, <a href="https://www.lemonde.fr/le-monde-des-religions/article/2026/11/24/le-journal-spirituel-du-pape-francois-devoile-trente-deux-annees-de-reflexions-du-saint-pere-argentin_6814741_6038514.html">selon Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Musique</span><span class="t">Garou fait salle comble à Toulouse</span>
+        Le chanteur québécois a réuni 1 200 spectateurs mardi au casino Barrière, pour un concert intimiste, <a href="https://www.ladepeche.fr/2026/11/25/reportage-jadore-sa-voix-facon-joe-cocker-garou-rallume-la-flamme-de-ses-plus-grands-succes-deux-soirs-daffilee-au-casino-barriere-13669586.php">raconte La Dépêche du Midi</a>.</article></div>
     </div>
   </section>
 
@@ -357,26 +402,26 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
         <li><b>1,855 €</b>353 avenue des États-Unis</li>
       </ol>
     </div>
-    <p class="src">Mise à jour à 13h07, <a href="https://www.prix-carburants.gouv.fr/">selon prix-carburants.gouv.fr</a>.</p>
+    <p class="src">Dernière mise à jour à 13h07, <a href="https://www.prix-carburants.gouv.fr/">selon prix-carburants.gouv.fr</a>.</p>
   </section>
 
   <section>
     <h2>Marchés</h2>
     <div class="quotes">
-      <div class="q"><span class="lbl">CAC 40</span><span class="big">8 077,91</span>
-        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,47 %</span></div>
-      <div class="q"><span class="lbl">S&amp;P 500</span><span class="big">7 201,09</span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,50 %</span></div>
-      <div class="q"><span class="lbl">Nasdaq</span><span class="big">23 733,53</span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−1,48 %</span></div>
-      <div class="q"><span class="lbl">Euro / dollar</span><span class="big">1,10</span>
-        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,39 %</span></div>
-      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">89,10<small> $</small></span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−2,52 %</span></div>
-      <div class="q"><span class="lbl">Bitcoin</span><span class="big">58 620,50<small> $</small></span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−1,89 %</span></div>
+      <div class="q"><span class="lbl">CAC 40</span><span class="big">8 030,47</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,12 %</span></div>
+      <div class="q"><span class="lbl">S&amp;P 500</span><span class="big">7 010,98</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−2,64 %</span></div>
+      <div class="q"><span class="lbl">Nasdaq</span><span class="big">22 794,40</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−3,96 %</span></div>
+      <div class="q"><span class="lbl">Euro / dollar</span><span class="big">1,09</span>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,35 %</span></div>
+      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">89,73<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−1,83 %</span></div>
+      <div class="q"><span class="lbl">Bitcoin</span><span class="big">57 908<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−3,08 %</span></div>
     </div>
-    <p class="src">Cours de 13h28 pour le CAC 40, de 13h32 pour le Brent, de 13h42 pour l’euro et de 13h43 pour le bitcoin ; Wall Street, à la clôture de mardi, a reculé, avec −1,48 % pour le Nasdaq (<a href="https://www.boursorama.com/bourse/indices/cours/1rPCAC/">Boursorama</a>, <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a>). Information uniquement, aucun conseil d’investissement.</p>
+    <p class="src">Cours de 16h17 à 16h32 (<a href="https://www.boursorama.com/bourse/indices/cours/1rPCAC/">Boursorama</a>, <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a>). Wall Street recule nettement alors que Washington annonce de nouveaux droits de douane contre l’Union européenne, la Chine et le Mexique (<a href="https://www.lemonde.fr/international/article/2026/11/25/droits-de-douane-l-ue-conteste-fermement-le-bien-fonde-des-nouvelles-sanctions-americaines_6815121_3210.html">Le Monde</a>).</p>
   </section>
 </div></div>
 
