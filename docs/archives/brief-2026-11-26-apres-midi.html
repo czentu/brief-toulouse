@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brief de l’après-midi</title>
+<base target="_blank">
+<link rel="manifest" href="/brief-toulouse/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/brief-toulouse/icon-180.png">
+<link rel="icon" type="image/png" href="/brief-toulouse/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Brief">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F9F9F7">
+<style>
+/* Deux bandes : le jour dessiné en haut ; en bas, chaque section a sa forme (relevés météo, une, tableau des scores, trois colonnes, cotations). */
+:root {
+  --bg: #FCFCFB; --wash: #F9F9F7; --edge: #E1E1DF;
+  --ink: #2E2C27; --ink-soft: #6B6A63; --ink-grey: #B4B3A8;
+  --hairline: #E4E3DC; --clay: #C6613F;
+  --up: #3D7A4F; --down: #B0432E;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1C1B19; --wash: #232220; --edge: #36352F;
+  --ink: #ECEAE3; --ink-soft: #A9A79E; --ink-grey: #6F6E66;
+  --hairline: #36352F; --clay: #D97757; --up: #7BBF8C; --down: #E58A72; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1C1B19; --wash: #232220; --edge: #36352F;
+  --ink: #ECEAE3; --ink-soft: #A9A79E; --ink-grey: #6F6E66;
+  --hairline: #36352F; --clay: #D97757; --up: #7BBF8C; --down: #E58A72; color-scheme: dark }
+@font-face { font-family: "Fraunces"; font-weight: 600; font-style: normal; font-display: block;
+  src: url(data:font/woff2;base64,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) format("woff2"); }
+
+body { margin: 0; background: var(--bg); color: var(--ink-soft); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+.band.top { background: var(--wash); border-bottom: 1px solid var(--edge); }
+.inner { max-width: 860px; margin: 0 auto; padding-block: 56px;
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.brand { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; color: var(--ink); }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand .bk { fill: none; stroke: var(--ink); stroke-width: 4.2; stroke-linecap: round; }
+.brand .bw { fill: none; stroke: var(--ink-grey); stroke-width: 3.2; stroke-linecap: round; }
+.brand .bs { fill: var(--clay); } .brand .br { stroke: var(--clay); stroke-width: 3.2; stroke-linecap: round; }
+.brand b { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: -.01em; line-height: 1; }
+.daydate { font-size: 14px; letter-spacing: .02em; margin: 0 0 14px; }
+h1 { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 1.15; color: var(--ink);
+  margin: 0 0 28px; text-wrap: balance; letter-spacing: -.01em; }
+svg.terrain { display: block; width: 100%; height: auto; margin-bottom: 20px; }
+.stroke { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.thin { fill: none; stroke: var(--ink-grey); stroke-width: 1.6; stroke-linecap: round; }
+.sun { fill: none; stroke: var(--clay); stroke-width: 2; stroke-linecap: round; }
+.acts { display: grid; grid-template-columns: repeat(3, 1fr); }
+.act { padding: 4px 24px; border-left: 1px solid var(--hairline); min-width: 0; }
+.act:first-child { padding-left: 0; border-left: 0; }
+.act b { display: block; color: var(--ink); font-size: 14px; font-weight: 650; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.act p { margin: 0; font-size: 15px; }
+
+.bottom .inner { display: flex; flex-direction: column; gap: 60px; }
+h2 { font-family: var(--sans); font-size: 13px; font-weight: 650; color: var(--ink); margin: 0 0 20px;
+  text-transform: uppercase; letter-spacing: .09em; display: flex; align-items: center; gap: 12px; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
+section p { margin: 0 0 12px; max-width: 68ch; }
+.calm { margin: 0; }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--ink-grey); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink-soft); }
+a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+.t { display: block; color: var(--ink); font-weight: 650; line-height: 1.35; margin-bottom: 3px; }
+.big { font-family: var(--serif); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
+.lbl { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+.ico { width: 26px; height: 26px; fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico .warm { stroke: var(--clay); }
+
+/* Météo : trois relevés */
+.wx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 20px; }
+.wx > div { padding: 4px 24px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.wx > div:first-child { padding-left: 0; border-left: 0; }
+.wx .big { font-size: 40px; }
+.wx .big small { font-size: 20px; color: var(--ink-soft); }
+.wx .sub { font-size: 14px; }
+
+/* Actualités : la une + grille */
+.une { display: grid; grid-template-columns: 1fr; gap: 6px; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--hairline); }
+.une .t { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.2; text-wrap: balance; margin-bottom: 4px; }
+.une p { margin: 0; max-width: 68ch; }
+.news { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; counter-reset: n 1; }
+.news li { counter-increment: n; display: grid; grid-template-columns: 34px 1fr; min-width: 0; }
+.news li::before { content: counter(n, decimal-leading-zero); font-family: var(--serif); font-weight: 600; color: var(--ink-grey); font-size: 18px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.news li > div { min-width: 0; font-size: 15px; }
+.tag { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--ink-grey); font-weight: 600; }
+
+/* Sport : tableau des scores */
+.scores { display: flex; flex-direction: column; }
+.score { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 18px; padding: 16px 0; border-top: 1px solid var(--hairline); }
+.score:first-child { border-top: 0; padding-top: 0; }
+.team { color: var(--ink); font-weight: 650; font-size: 17px; }
+.team.r { text-align: right; }
+.team.l { text-align: left; }
+.team.win::after, .team.r.win::before { content: none; }
+.sc { font-size: 34px; text-align: center; white-space: nowrap; }
+.sc .lose { color: var(--ink-grey); }
+.score-note { grid-column: 1 / -1; text-align: center; font-size: 14px; margin-top: -6px; }
+.mini { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; grid-column: 1 / -1; }
+.podium { grid-column: 1 / -1; display: flex; justify-content: center; align-items: baseline; gap: 22px; flex-wrap: wrap; color: var(--ink); }
+.podium b { font-family: var(--serif); font-weight: 600; font-size: 26px; margin-right: 6px; }
+.podium .p2 b { color: var(--ink-grey); }
+
+/* Sciences, économie, IA : trois colonnes */
+.themes { display: grid; grid-template-columns: repeat(3, 1fr); }
+.theme { padding: 0 24px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.theme:first-child { padding-left: 0; border-left: 0; }
+.theme:last-child { padding-right: 0; }
+.theme header { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; font-size: 15px; }
+.theme article { font-size: 14.5px; }
+
+.theme .tag { display: block; margin-bottom: 2px; }
+.themes.two { grid-template-columns: repeat(2, 1fr); }
+
+.big.air { font-size: 40px; }
+.big.air small { font-size: 16px; color: var(--ink-soft); font-family: var(--sans); font-weight: 500; }
+.themes.culture { grid-template-columns: repeat(4, 1fr); }
+.themes.culture .theme { padding: 0 18px; }
+.themes.culture .theme:first-child { padding-left: 0; }
+.themes.culture .theme:last-child { padding-right: 0; }
+.themes.culture .theme article { font-size: 14px; }
+
+/* Marchés : cotations */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--hairline); margin-bottom: 20px; }
+.q { padding: 18px 20px 18px 0; border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.q:nth-child(3n+2), .q:nth-child(3n) { padding-left: 20px; border-left: 1px solid var(--hairline); }
+.q .big { font-size: 28px; white-space: nowrap; }
+.q .big small { font-size: 15px; color: var(--ink-soft); }
+.chg { font-size: 14px; font-weight: 650; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 6px; }
+.chg.up { color: var(--up); } .chg.down { color: var(--down); } .chg.flat { color: var(--ink-soft); font-weight: 500; }
+.chg svg { width: 10px; height: 10px; fill: currentColor; }
+.chg span { color: var(--ink-soft); font-weight: 500; }
+.src { font-size: 14px; }
+
+@media (max-width: 640px) {
+  .inner { padding-block: 36px; }
+  .bottom .inner { gap: 48px; }
+  h1 { font-size: 30px; }
+  .acts, .wx, .themes { grid-template-columns: 1fr; }
+  .act, .wx > div, .theme { padding: 14px 0; border-left: 0; border-top: 1px solid var(--hairline); }
+  .act:first-child, .wx > div:first-child, .theme:first-child { border-top: 0; padding-top: 0; }
+  .news { grid-template-columns: 1fr; }
+  .themes.culture { grid-template-columns: 1fr; }
+  .themes.culture .theme { padding: 14px 0; }
+  .themes.two { grid-template-columns: 1fr; }
+  .une .t { font-size: 22px; }
+  .quotes { grid-template-columns: 1fr 1fr; }
+  .q, .q:nth-child(3n+2), .q:nth-child(3n) { padding: 16px 14px 16px 0; border-left: 0; }
+  .q:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--hairline); }
+  .q .big { font-size: 23px; }
+  .sc { font-size: 26px; }
+  .team { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-up" viewBox="0 0 10 10"><path d="M5 1 L9.5 9 H0.5 Z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 10 10"><path d="M5 9 L9.5 1 H0.5 Z"/></symbol>
+</svg>
+
+<div class="band top"><div class="inner">
+  <!-- Logo du Brief : à garder tel quel sur chaque brief -->
+  <div class="brand" aria-label="Brief">
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <defs><clipPath id="brand-horizon"><rect x="0" y="0" width="96" height="53"/></clipPath></defs>
+      <circle class="bs" cx="48" cy="53" r="18" clip-path="url(#brand-horizon)"/>
+      <path class="br" d="M48 23 v-8 M69 31 l5 -5 M27 31 l-5 -5"/>
+      <path class="bk" d="M10 57 C 24 52, 35 60, 48 56 S 74 52, 86 57"/>
+      <path class="bw" d="M28 70 h40 M38 79 h20"/>
+    </svg>
+    <b>Brief</b>
+  </div>
+  <p class="daydate">Jeudi · 26 novembre 2026</p>
+  <h1>Une fin d’après-midi qui s’éclaircit après l’averse, puis une soirée calme et fraîche.</h1>
+
+  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La fin de journée dessinée comme une eau calme : pluie légère et vent d’abord, lune claire en soirée, voile de nuages la nuit.">
+    <path class="thin" d="M96 38 l-5 12 M120 38 l-5 12 M144 38 l-5 12 M108 62 l-5 12 M132 62 l-5 12"/>
+    <path class="thin" d="M176 88 h74 a10 10 0 1 0 -10 -10"/>
+    <path class="sun" d="M432 36 a22 22 0 1 0 14 40 a17 17 0 1 1 -14 -40 z"/>
+    <path class="thin" d="M640 52 h78 M660 66 h92 M648 80 h60"/>
+    <path class="stroke" d="M0 128 C 50 125, 90 131, 140 128 S 230 125, 280 128 S 370 131, 420 127 S 510 125, 560 128 S 650 131, 700 128 S 790 125, 840 128"/>
+  </svg>
+
+  <div class="acts">
+    <div class="act"><b>16h30 – 18h</b><p>Reste d’averse vers 16h puis éclaircies ; 10 °C, rafales de nord-ouest jusqu’à 30 km/h, soleil couché à 17h21.</p></div>
+    <div class="act"><b>18h – 21h</b><p>La nuit tombe sur un ciel peu nuageux, sans pluie ; 9 °C puis 7 °C, le vent retombe vers 7 km/h.</p></div>
+    <div class="act"><b>21h et après</b><p>Autour de 7 °C, presque sans vent sous un ciel nuageux ; 5,6 °C attendus à l’aube.</p></div>
+  </div>
+</div></div>
+
+<div class="band bottom"><div class="inner">
+  <p class="calm">Rien à signaler : aucun calendrier ni messagerie n'alimente ce brief.</p>
+
+  <section>
+    <h2>Météo à Toulouse</h2>
+    <div class="wx">
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 15 h11 a4 4 0 0 0 0 -8 a6 6 0 0 0 -11.5 1 a3.5 3.5 0 0 0 0.5 7 z"/><path class="warm" d="M9 19 l-1 3 M13 19 l-1 3 M17 19 l-1 3"/></svg>
+        <span class="lbl">Fin d’après-midi</span>
+        <span class="big">10<small>°C</small></span>
+        <span class="sub">Averse à 16h (65 % de pluie), éclaircies ensuite ; rafales de nord-ouest vers 30 km/h</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M17 5 a8 8 0 1 0 5 13 a6.5 6.5 0 0 1 -5 -13 z"/><path d="M4 23 h14"/></svg>
+        <span class="lbl">Soirée</span>
+        <span class="big">9–7<small>°C</small></span>
+        <span class="sub">Ciel peu nuageux, pas de pluie, vent d’ouest de 11 à 7 km/h</span>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M6 18 h12 a4 4 0 0 0 0 -8 a6 6 0 0 0 -11.5 1 a3.5 3.5 0 0 0 -0.5 7 z"/><path d="M5 23 h16"/></svg>
+        <span class="lbl">Nuit</span>
+        <span class="big">7<small>°C</small></span>
+        <span class="sub">Nuageux, vent presque nul ; 6,7 °C vers 6h</span>
+      </div>
+    </div>
+    <p>Demain vendredi : de 5,6 °C au plus frais à 10,9 °C l’après-midi, ciel voilé à dégagé, 5 % de pluie, soleil levé à 8h02 et couché à 17h20, <a href="https://open-meteo.com/">selon Open-Meteo</a>.</p>
+  </section>
+
+  <section>
+    <h2>Actualités du jour</h2>
+    <div class="une">
+      <span class="tag">À la une · Monde</span>
+      <span class="t">Pablo Hernandez de Cos choisi pour succéder à Christine Lagarde à la BCE</span>
+      <p>L’ancien gouverneur de la Banque d’Espagne, qui dirige aujourd’hui la Banque des règlements internationaux, a été préféré au Néerlandais Klaas Knot, <a href="https://www.franceinfo.fr/monde/europe/union-europeenne/l-ex-gouverneur-de-la-banque-d-espagne-pablo-hernandez-de-cos-va-succeder-a-christine-lagarde-a-la-tete-de-la-banque-centrale-europeenne_8301510.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</p>
+    </div>
+    <ol class="news">
+      <li><div><span class="tag">France</span><span class="t">Émilie König s’excuse à l’ouverture de son procès</span>
+        L’ex-propagandiste de l’État islamique, jugée jusqu’à lundi à Paris, dit « honte » devant la cour d’assises spéciale, <a href="https://www.franceinfo.fr/monde/terrorisme-djihadistes/j-ai-vraiment-honte-au-premier-jour-de-son-proces-emilie-konig-ex-propagandiste-de-l-etat-islamique-presente-ses-excuses-a-toute-la-nation-francaise_8301402.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Bardella : de nouveaux messages antisémites révélés</span>
+        Le Monde et Mediapart publient de nouveaux échanges de 2013 attribués au président du RN, dont Le Monde détaille « 19 preuves » d’authenticité, <a href="https://www.lemonde.fr/politique/article/2026/11/26/messages-antisemites-de-jordan-bardella-les-19-preuves-que-le-president-du-rn-est-bien-l-auteur-des-propos-incrimines-sur-messenger_6815482_823448.html">d’après Le Monde</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Depardieu renvoyé en procès pour une partie des viols</span>
+        La cour d’appel de Paris confirme le renvoi pour des faits de l’été 2018 dénoncés par Charlotte Arnould ; un pourvoi en cassation reste possible, <a href="https://www.lemonde.fr/societe/article/2026/11/26/gerard-depardieu-renvoye-en-proces-pour-une-partie-des-viols-dont-l-accuse-charlotte-arnould_6815543_3224.html">selon Le Monde</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Budget de la Sécu 2027 : pas d’accord entre députés et sénateurs</span>
+        La commission mixte paritaire a échoué à se mettre d’accord et le texte retourne à l’Assemblée, <a href="https://www.franceinfo.fr/economie/budget/budget-de-la-securite-sociale-les-deputes-et-senateurs-echouent-a-trouver-un-accord-le-texte-retourne-a-l-assemblee_8301108.html#xtor=RSS-3-[lestitres]">rapporte franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Les étudiants défilent à Paris</span>
+        Syndicats étudiants et personnels de la recherche ont lancé un cortège, alors que les blocages de lycées reculent, <a href="https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-de-la-jeunesse-les-organisations-veulent-maintenir-la-pression-malgre-le-recul-des-blocages-une-manifestation-prevue-dans-l-apres-midi_8300754.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Sommet à Bruxelles sur le budget européen et l’Ukraine</span>
+        Les Vingt-Sept cherchent un compromis sur le budget 2028-2034, avec en toile de fond une enveloppe de cent milliards d’euros de plus pour Kiev, <a href="https://www.france24.com/fr/vid%C3%A9o/20261126-r%C3%A9union-%C3%A0-bruxelles-cent-milliards-d-euros-de-plus-pour-l-ukraine">explique France 24</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Londres écrit à 100 000 anciens militaires</span>
+        Face à la menace russe, le ministère britannique de la Défense veut pouvoir les rappeler en cas de besoin, une démarche inédite, <a href="https://www.franceinfo.fr/societe/armee-securite-defense/face-a-la-menace-russe-le-royaume-uni-contacte-100-000-anciens-militaires_8301528.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Kiev revendique des frappes sur une base aérienne et un site pétrolier russes</span>
+        L’état-major ukrainien parle de deux infrastructures stratégiques touchées dans la nuit de mercredi à jeudi, <a href="https://www.lemonde.fr/international/live/2026/11/26/en-direct-guerre-en-ukraine-kiev-revendique-des-attaques-sur-une-base-aerienne-et-une-station-petroliere-en-russie_6814183_3210.html">d’après Le Monde</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Un pétrolier chavire au large d’Ibiza avec 7 000 tonnes de diesel</span>
+        Un marin est mort et l’Espagne a déclenché son plan d’urgence contre la pollution marine en Méditerranée, <a href="https://www.franceinfo.fr/environnement/pollution/naufrages/c-est-quelque-chose-qui-est-tres-preoccupant-l-inquietude-apres-le-naufrage-d-un-petrolier-avec-7-000-tonnes-de-diesel-a-bord-au-large-d-ibiza_8301390.html#xtor=RSS-3-[lestitres]">rapporte franceinfo</a>.</div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Sport</h2>
+    <div class="scores">
+      <div class="score">
+        <span class="team r">Alexander Zverev</span>
+        <span class="sc big">6-3 <span class="lose">6-2</span></span>
+        <span class="team l">Arthur Fery</span>
+        <p class="score-note">Coupe Davis, quarts de finale : le numéro 1 mondial signe sa 70e victoire de l’année, mais l’Allemagne s’incline dans le double décisif face à la Grande-Bretagne, <a href="https://www.lequipe.fr/Tennis/Actualites/Pas-de-retrouvailles-entre-zverev-et-alcaraz-l-allemagne-eliminee-en-quarts-de-finale-de-la-coupe-davis-par-la-grande-bretagne/1746352#at_medium=RSS_feeds">selon L’Équipe</a>.</p>
+      </div>
+      <div class="score">
+        <div class="mini"><span><b>Lille</b> bat le Bayern Munich</span><span><b>Rome</b> tient le PSG en échec</span></div>
+        <p class="score-note">Ligue des champions, mercredi soir : première victoire de la saison pour le Losc, qui se relance (<a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/tombeur-du-bayern-munich-le-losc-signe-sa-premiere-victoire-de-la-saison-en-ligue-des-champions-et-se-relance_8300349.html#xtor=RSS-3-%5Bsports%5D">franceinfo</a>), et fin de série pour le PSG (<a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/tenu-en-echec-par-l-as-rome-en-ligue-des-champions-le-psg-voit-sa-serie-de-victoires-s-arreter_8300280.html#xtor=RSS-3-%5Bsports%5D">franceinfo</a>).</p>
+      </div>
+      <div class="score">
+        <div class="mini"><span><b>Biathlon</b> · Coupe du monde</span><span>Première manche à Kontiolahti</span></div>
+        <p class="score-note">Le retour de la Coupe du monde en Finlande, avec une équipe de France qui sort d’une saison olympique exceptionnelle, <a href="https://www.franceinfo.fr/sports/sports-d-hiver/biathlon/ou-en-est-l-equipe-de-france-de-biathlon-quelques-mois-apres-sa-saison-olympique-exceptionnelle_8299458.html#xtor=RSS-3-%5Bsports%5D">selon franceinfo</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sciences, économie et IA</h2>
+    <div class="themes">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="2"/><ellipse cx="13" cy="13" rx="10" ry="4"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(60 13 13)"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(120 13 13)"/></svg>Sciences</header>
+        <article><span class="tag">Physique</span><span class="t">Le supersolide, nouvel état de la matière</span>
+          Des chercheurs ont créé une matière qui s’organise comme un cristal tout en s’écoulant sans résistance. Un état à la fois solide et liquide, <a href="https://www.franceinfo.fr/sciences/ni-solide-ni-liquide-voici-le-supersolide-un-nouvel-etat-de-la-matiere_8299764.html#xtor=RSS-3-%5Bsciences%5D">explique franceinfo</a>.</article>
+        <article><span class="tag">Archéologie</span><span class="t">Une femme vieille de 2 000 ans sortie d’une tourbière</span>
+          Décapitée puis abandonnée, elle est la première du genre trouvée en Irlande du Nord. Le public irlandais l’a tout de suite adoptée, <a href="https://www.sciencesetavenir.fr/archeo-paleo/une-femme-decapitee-il-y-a-plus-de-2000-ans-decouverte-en-irlande-du-nord_196584?xtor=RSS-4">selon Sciences et Avenir</a>.</article>
+        <article><span class="tag">Biologie</span><span class="t">L’abeille géante des Moluques dans un inventaire inédit</span>
+          Megachile pluto, la plus grande abeille connue, figure parmi 4 147 espèces insulaires recensées, dont plus de 1 700 n’existent que sur des îles, <a href="https://www.lemonde.fr/sciences/article/2026/11/25/megachile-pluto-l-abeille-geante-des-moluques-symbole-des-especes-insulaires_6815163_1650684.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Climat</span><span class="t">Après l’échec d’Antalya, on veut réformer les COP</span>
+          Les appels se multiplient pour changer le mode de décision par consensus, qui rend les accords de plus en plus difficiles, <a href="https://www.lefigaro.fr/sciences/la-cop31-a-ete-prise-en-otage-apres-l-echec-d-antalya-faut-il-changer-les-regles-du-jeu-20261124">selon Le Figaro</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 22 h20"/><path d="M4 17 l5 -5 l4 3 l8 -9"/><path d="M16 6 h5 v5"/></svg>Économie</header>
+        <article><span class="tag">Industrie</span><span class="t">BYD veut produire en France</span>
+          Le constructeur chinois a annoncé vouloir racheter l’usine d’Hambach, en Moselle, pour produire en Europe malgré un marché automobile en panne et contourner les droits de douane, <a href="https://www.franceinfo.fr/economie/automobile/pourquoi-le-constructeur-chinois-byd-veut-il-s-implanter-en-france-alors-que-le-marche-automobile-europeen-est-en-panne_8299377.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</article>
+        <article><span class="tag">Consommation</span><span class="t">Jouets en ligne : 40 % jugés dangereux</span>
+          Les contrôles de la répression des fraudes en 2025 concluent que 77 % de ces jouets sont non conformes, à l’approche des fêtes, <a href="https://www.lemonde.fr/economie/article/2026/11/26/un-jouet-sur-trois-qui-est-vendu-en-ligne-est-dangereux-alertent-serge-papin-et-la-dgccrf-avant-les-fetes-de-fin-d-annee_6815540_3234.html">d’après Le Monde</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="7" width="12" height="12" rx="1.5"/><rect x="10.5" y="10.5" width="5" height="5"/><path d="M10 7 V3 M16 7 V3 M10 23 v-4 M16 23 v-4 M7 10 H3 M7 16 H3 M23 10 h-4 M23 16 h-4"/></svg>IA</header>
+        <article><span class="tag">Infrastructure</span><span class="t">Un million de satellites pour des data centers spatiaux</span>
+          SpaceX obtient l’autorisation de déployer sa constellation Starmind, alors que Google et Blue Origin avancent aussi sur le sujet, <a href="https://www.lemonde.fr/sciences/article/2026/11/26/spacex-recoit-l-autorisation-de-lancer-jusqu-a-un-million-de-satellites-pour-ses-centres-de-donnees-spatiaux_6815331_1650684.html">selon Le Monde</a>.</article>
+        <article><span class="tag">Entreprises</span><span class="t">Nvidia : des élus républicains réclament des enquêtes</span>
+          Après le retour de Jensen Huang, une partie du camp de Donald Trump rompt les rangs, ce qui est rare, <a href="https://www.sciencesetavenir.fr/politique/une-partie-des-republicains-rompt-les-rangs-derriere-trump-et-reclame-des-enquetes-sur-nvidia_196531">d’après Sciences et Avenir</a>.</article>
+        <article><span class="tag">Régulation</span><span class="t">L’ANSM alerte sur les conseils médicaux de l’IA</span>
+          L’agence a recensé au moins huit cas de surdosage entre 2024 et 2026 liés à des conseils d’une IA, chez des personnes de 17 à 89 ans, <a href="https://www.franceinfo.fr/sante/conseils-de-l-ia-sur-les-medicaments-l-ansm-sonne-l-alerte_8301597.html#xtor=RSS-3-%5Bsante%5D">rapporte franceinfo</a>.</article>
+        <article><span class="tag">Recherche</span><span class="t">Les data centers consomment trois fois plus que prévu</span>
+          Une nouvelle estimation de chercheurs de Harvard revoit à la hausse les besoins en électricité des centres actuels, <a href="https://www.sciencesetavenir.fr/high-tech/les-data-centers-consomment-beaucoup-plus-d-electricite-que-prevu_196534?xtor=RSS-12">selon Sciences et Avenir</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Espace et aéronautique</h2>
+    <div class="themes two">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3 c4 3 5 8 4 13 h-8 c-1 -5 0 -10 4 -13 z"/><circle cx="13" cy="10" r="1.6"/><path d="M9 16 l-3 4 h4 M17 16 l3 4 h-4"/><path class="warm" d="M11.5 20 l1.5 3 l1.5 -3"/></svg>Espace</header>
+        <article><span class="tag">Défense planétaire</span><span class="t">Hera dévoile le cratère de Dimorphos</span>
+          Quatre ans après l’impact de DART, la sonde européenne montre un trou grand comme un stade dans l’astéroïde dévié. Ses mesures doivent préciser l’effet réel du test, <a href="https://www.lemonde.fr/sciences/article/2026/11/25/la-sonde-hera-revele-un-cratere-geant-sur-dimorphos-le-petit-asteroide-devie-par-la-mission-dart_6815154_1650684.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Vols habités</span><span class="t">Un premier astronaute étranger à bord de Tiangong</span>
+          Le Pakistanais Muhammad Zeeshan Ali est arrivé à la station chinoise avec l’équipage de Shenzhou-24, une première pour un visiteur international, <a href="https://www.space.com/space-exploration/human-spaceflight/pakistani-astronaut-becomes-1st-international-visitor-to-chinas-tiangong-space-station-photos">selon Space.com</a>.</article>
+        <article><span class="tag">Lanceurs</span><span class="t">Alpha Impulsion s’installe à Toulouse</span>
+          La start-up de microlanceurs veut diviser par six le coût de mise en orbite et prépare une levée de fonds, <a href="https://www.ladepeche.fr/2026/11/24/avec-sa-fusee-revolutionnaire-alpha-impulsion-demenage-a-toulouse-et-prepare-une-levee-de-fonds-pour-semparer-du-marche-des-lanceurs-13658813.php">rapporte La Dépêche du Midi</a>.</article>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 14 l20 -6 c1 -0.3 1.6 1.2 0.6 1.7 L5 18 z"/><path d="M10 12 l-3 -6 h3 l6 4.5"/><path d="M8 16.5 l1 4 h2.5 l2 -6"/></svg>Aéronautique</header>
+        <article><span class="tag">Airbus</span><span class="t">Macron annonce 350 millions d’euros pour l’aéronautique</span>
+          L’annonce a été faite lundi 23 novembre depuis les usines Airbus de Toulouse, <a href="https://www.ladepeche.fr/2026/11/23/direct-emmanuel-macron-a-toulouse-le-chef-de-letat-en-visite-sur-le-site-dairbus-durant-toute-la-matinee-13666690.php">selon La Dépêche du Midi</a>.</article>
+        <article><span class="tag">Commandes</span><span class="t">Air Europa et ses 40 A350, face à l’aéroport de Madrid</span>
+          La compagnie espagnole a commandé jusqu’à 40 A350 assemblés à Toulouse, mais saisit la justice : ses terminaux madrilènes seraient trop petits pour les accueillir, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/airbus-a350-40-avions-commandes-a-toulouse-mais-un-aeroport-de-madrid-trop-petit-pour-les-faire-voler-a-plein-3455489.html">d’après France 3 Occitanie</a>.</article>
+        <article><span class="tag">Industrie</span><span class="t">Tarmac Aerosave mise sur le recyclage d’avions à Tarbes</span>
+          Une zone de démantèlement de 15 000 m² et 30 millions d’euros d’investissement pour devenir le champion européen du secteur, <a href="https://www.ladepeche.fr/2026/11/25/nous-sommes-tout-sauf-un-cimetiere-a-avions-a-tarbes-tarmac-aerosave-veut-devenir-le-champion-europeen-du-recyclage-des-avions-13671241.php">selon La Dépêche du Midi</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Santé</h2>
+    <div class="themes two">
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 9 h12 a3 3 0 1 0 -3 -3"/><path d="M3 14 h17 a3 3 0 1 1 -3 3"/><path class="warm" d="M3 19 h7"/></svg>Air à Toulouse</header>
+        <span class="lbl">Indice européen, pic des prochaines heures</span>
+        <span class="big air">45<small> · moyen</small></span>
+        <span class="sub">Pic vendredi vers 10h, porté par les particules fines PM2.5. Le moment le plus sain pour sortir : cet après-midi jusqu’à 18h, indice entre 23 et 26, <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
+      </div>
+      <div class="theme">
+        <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22 c-6 -4 -9 -8 -9 -12 a4.5 4.5 0 0 1 9 -1.5 a4.5 4.5 0 0 1 9 1.5 c0 4 -3 8 -9 12 z"/><path class="warm" d="M7 13 h3 l1.5 -3 l2 5 l1.5 -2 h4"/></svg>Santé</header>
+        <article><span class="tag">Épidémie</span><span class="t">La grippe s’installe en France</span>
+          La majorité des régions de l’Hexagone sont passées en pré-épidémie, avec des recours aux soins supérieurs à ceux de l’an dernier à la même date, <a href="https://www.lemonde.fr/societe/article/2026/11/25/la-grippe-s-installe-en-france-ou-la-majorite-des-regions-de-l-hexagone-sont-passees-en-pre-epidemie_6815156_3224.html">selon Le Monde et Santé publique France</a>.</article>
+        <article><span class="tag">Environnement</span><span class="t">Des PFAS dans des laits infantiles vendus en France</span>
+          Des analyses révèlent des polluants éternels interdits, à des niveaux qui dépassent la dose hebdomadaire tolérable pour les nourrissons, <a href="https://www.lemonde.fr/planete/article/2026/11/26/des-laits-infantiles-vendus-en-france-sont-contamines-par-des-pfas-interdits-et-cancerogenes_6815474_3244.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Prévention</span><span class="t">Le vaccin contre le papillomavirus patine</span>
+          La couverture reste bien en deçà de l’objectif de 80 % fixé pour 2030, surtout dans les quartiers prioritaires, <a href="https://www.franceinfo.fr/sante/vaccins/reportage-je-suis-mitigee-il-y-a-trop-de-vaccins-la-vaccination-contre-le-papillomavirus-patine-dans-certains-quartiers_8300304.html#xtor=RSS-3-%5Bsante%5D">explique franceinfo</a>.</article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Culture</h2>
+    <div class="themes culture">
+      <div class="theme"><article><span class="tag">Cinéma</span><span class="t">« Paper Tiger », de James Gray</span>
+        Un récit de lente dislocation familiale avec Scarlett Johansson, Adam Driver et Miles Teller, à l’affiche cette semaine, <a href="https://www.lemonde.fr/culture/article/2026/11/24/paper-tiger-le-cineaste-james-gray-livre-le-recit-captivant-d-une-lente-dislocation-familiale_6814821_3246.html">selon Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Expo à Toulouse</span><span class="t">Joan Miró, « Protestation »</span>
+        À voir aux Abattoirs du 3 octobre 2026 au 7 mars 2027, <a href="https://www.lesabattoirs.org/Expositions/joan-miro/">sur le site du musée</a>.</article></div>
+      <div class="theme"><article><span class="tag">Livres</span><span class="t">Goncourt des lycéens pour Lilia Hassaine</span>
+        Son roman « JE » donne une voix à Bertha Mason, personnage de « Jane Eyre », <a href="https://www.lemonde.fr/livres/article/2026/11/26/lilia-hassaine-remporte-le-prix-goncourt-des-lyceens-avec-son-roman-je_6815534_3260.html">d’après Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Musique</span><span class="t">Folk baroque pour Standley et Lazarevitch</span>
+        Rosemary Standley et François Lazarevitch relisent des ballades du nord des îles Britanniques dans « Songs from the North Country », <a href="https://www.lemonde.fr/culture/article/2026/11/25/le-folk-baroque-de-la-chanteuse-rosemary-standley-et-du-flutiste-francois-lazarevitch_6815140_3246.html">selon Le Monde</a>.</article></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Marchés</h2>
+    <div class="quotes">
+      <div class="q"><span class="lbl">CAC 40</span><span class="big">8 123,72</span>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+1,79 %</span></div>
+      <div class="q"><span class="lbl">S&amp;P 500</span><span class="big">7 182,78</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,25 %</span></div>
+      <div class="q"><span class="lbl">Nasdaq</span><span class="big">23 585,80</span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,62 %</span></div>
+      <div class="q"><span class="lbl">Euro / dollar</span><span class="big">1,10</span>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,13 %</span></div>
+      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">91,41<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−3,38 %</span></div>
+      <div class="q"><span class="lbl">Bitcoin</span><span class="big">60 307,81<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,12 %</span></div>
+    </div>
+    <p class="src">Cours relevés jeudi 26 novembre vers 16h20 ; Wall Street : clôture de mercredi 25. Le CAC 40 gagne 1,79 % le jour où les dirigeants de la zone euro désignent les responsables de la BCE (<a href="https://www.lemonde.fr/economie/article/2026/11/26/a-la-tete-de-la-bce-un-trio-fraichement-nomme-pour-proteger-l-europe-de-l-inflation-et-peut-etre-la-france-d-une-attaque-sur-les-marches_6815550_3234.html">Le Monde</a>), tandis que le Brent recule de plus de 3 %. Données <a href="https://www.boursorama.com/bourse/indices/cours/1rPCAC/">Boursorama</a> et <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a> ; information uniquement.</p>
+  </section>
+</div></div>
+
+
+<p style="text-align:center;font:13px -apple-system,Segoe UI,sans-serif;margin:0;padding:8px 0 40px"><a target="_self" href="/brief-toulouse/archives.html" style="color:#6B6A63">Briefs précédents</a></p>
+</body>
+</html>

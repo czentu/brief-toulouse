@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brief du matin</title>
+<title>Brief de l’après-midi</title>
 <base target="_blank">
 <link rel="manifest" href="/brief-toulouse/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/brief-toulouse/icon-180.png">
@@ -123,14 +123,7 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
 .themes.culture .theme { padding: 0 18px; }
 .themes.culture .theme:first-child { padding-left: 0; }
 .themes.culture .theme:last-child { padding-right: 0; }
-.fuel { display: grid; grid-template-columns: auto 1fr; gap: 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); margin-bottom: 20px; }
-.fuel-avg { display: flex; flex-direction: column; gap: 8px; padding: 18px 28px 18px 0; }
-.fuel-avg .big { font-size: 40px; white-space: nowrap; }
-.fuel-avg .big small { font-size: 18px; color: var(--ink-soft); }
-.fuel-avg .sub { font-size: 14px; }
-.fuel-top { list-style: none; margin: 0; padding: 18px 0 18px 28px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 15px; }
-.fuel-top li { display: flex; gap: 14px; align-items: baseline; min-width: 0; }
-.fuel-top b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }.themes.culture .theme article { font-size: 14px; }
+.themes.culture .theme article { font-size: 14px; }
 
 /* Marchés : cotations */
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--hairline); margin-bottom: 20px; }
@@ -154,9 +147,6 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
   .news { grid-template-columns: 1fr; }
   .themes.culture { grid-template-columns: 1fr; }
   .themes.culture .theme { padding: 14px 0; }
-  .fuel { grid-template-columns: 1fr; }
-  .fuel-avg { padding: 16px 0; }
-  .fuel-top { padding: 16px 0; border-left: 0; border-top: 1px solid var(--hairline); }
   .themes.two { grid-template-columns: 1fr; }
   .une .t { font-size: 22px; }
   .quotes { grid-template-columns: 1fr 1fr; }
@@ -169,11 +159,6 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-up" viewBox="0 0 10 10"><path d="M5 1 L9.5 9 H0.5 Z"/></symbol>
-  <symbol id="i-down" viewBox="0 0 10 10"><path d="M5 9 L9.5 1 H0.5 Z"/></symbol>
-</svg>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-up" viewBox="0 0 10 10"><path d="M5 1 L9.5 9 H0.5 Z"/></symbol>
@@ -193,79 +178,77 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <b>Brief</b>
   </div>
   <p class="daydate">Jeudi · 26 novembre 2026</p>
-  <h1>Une journée sans rendez-vous : pluie le matin, éclaircies l’après-midi, ciel dégagé le soir.</h1>
+  <h1>Une fin d’après-midi qui s’éclaircit après l’averse, puis une soirée calme et fraîche.</h1>
 
-  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La journée dessinée comme une eau calme : pluie le matin, soleil voilé l’après-midi, lune le soir.">
-    <path class="thin" d="M100 52 h70 a10 10 0 1 0 -10 -10 M86 66 h92"/>
-    <path class="thin" d="M104 80 l-5 12 M126 80 l-5 12 M148 80 l-5 12 M170 80 l-5 12"/>
-    <circle class="sun" cx="420" cy="58" r="17"/>
-    <path class="thin" d="M388 80 h74 a10 10 0 1 0 -10 -10 M404 92 h62"/>
-    <path class="thin" d="M700 36 a24 24 0 1 0 22 34 a19 19 0 0 1 -22 -34 z"/>
-    <path class="thin" d="M650 90 h46 M668 100 h60"/>
+  <svg class="terrain" viewBox="0 0 840 170" role="img" aria-label="La fin de journée dessinée comme une eau calme : pluie légère et vent d’abord, lune claire en soirée, voile de nuages la nuit.">
+    <path class="thin" d="M96 38 l-5 12 M120 38 l-5 12 M144 38 l-5 12 M108 62 l-5 12 M132 62 l-5 12"/>
+    <path class="thin" d="M176 88 h74 a10 10 0 1 0 -10 -10"/>
+    <path class="sun" d="M432 36 a22 22 0 1 0 14 40 a17 17 0 1 1 -14 -40 z"/>
+    <path class="thin" d="M640 52 h78 M660 66 h92 M648 80 h60"/>
     <path class="stroke" d="M0 128 C 50 125, 90 131, 140 128 S 230 125, 280 128 S 370 131, 420 127 S 510 125, 560 128 S 650 131, 700 128 S 790 125, 840 128"/>
   </svg>
 
   <div class="acts">
-    <div class="act"><b>7h – 12h</b><p>De 7 à 10 °C sous une pluie persistante ; le vent se lève vers 11h, avec des rafales jusqu’à 26 km/h.</p></div>
-    <div class="act"><b>12h – 18h</b><p>10 à 11 °C, des averses puis des éclaircies ; vent d’ouest-nord-ouest, rafales jusqu’à 30 km/h.</p></div>
-    <div class="act"><b>18h et après</b><p>Le temps sèche dès 18h ; 8 à 9 °C, le vent retombe, et le brouillard s’invite demain matin.</p></div>
+    <div class="act"><b>16h30 – 18h</b><p>Reste d’averse vers 16h puis éclaircies ; 10 °C, rafales de nord-ouest jusqu’à 30 km/h, soleil couché à 17h21.</p></div>
+    <div class="act"><b>18h – 21h</b><p>La nuit tombe sur un ciel peu nuageux, sans pluie ; 9 °C puis 7 °C, le vent retombe vers 7 km/h.</p></div>
+    <div class="act"><b>21h et après</b><p>Autour de 7 °C, presque sans vent sous un ciel nuageux ; 5,6 °C attendus à l’aube.</p></div>
   </div>
 </div></div>
 
 <div class="band bottom"><div class="inner">
-  <p class="calm">Rien à signaler : aucun calendrier ni messagerie n’alimente ce brief.</p>
+  <p class="calm">Rien à signaler : aucun calendrier ni messagerie n'alimente ce brief.</p>
 
   <section>
     <h2>Météo à Toulouse</h2>
     <div class="wx">
       <div>
-        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 15 a4 4 0 0 1 1 -8 a5 5 0 0 1 9.5 1.5 a3.4 3.4 0 0 1 -0.5 6.5 z"/><path class="warm" d="M9 18 l-1 3 M13 18 l-1 3 M17 18 l-1 3"/></svg>
-        <span class="lbl">Matin</span>
-        <span class="big">7–10<small>°C</small></span>
-        <span class="sub">Pluie, 75 à 85 % de probabilité ; vent faible, rafales à 26 km/h vers 11h</span>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 15 h11 a4 4 0 0 0 0 -8 a6 6 0 0 0 -11.5 1 a3.5 3.5 0 0 0 0.5 7 z"/><path class="warm" d="M9 19 l-1 3 M13 19 l-1 3 M17 19 l-1 3"/></svg>
+        <span class="lbl">Fin d’après-midi</span>
+        <span class="big">10<small>°C</small></span>
+        <span class="sub">Averse à 16h (65 % de pluie), éclaircies ensuite ; rafales de nord-ouest vers 30 km/h</span>
       </div>
       <div>
-        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle class="warm" cx="13" cy="11" r="5"/><path class="warm" d="M13 2 v2 M13 18 v2 M4 11 h2 M20 11 h2 M6.6 4.6 l1.4 1.4 M18 16 l1.4 1.4 M19.4 4.6 L18 6 M8 16 l-1.4 1.4"/><path d="M5 23 h16"/></svg>
-        <span class="lbl">Après-midi</span>
-        <span class="big">10–11<small>°C</small></span>
-        <span class="sub">Averses vers 12h, puis éclaircies ; pluie 63 % à 13h, 30 % à 17h ; rafales à 30 km/h</span>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M17 5 a8 8 0 1 0 5 13 a6.5 6.5 0 0 1 -5 -13 z"/><path d="M4 23 h14"/></svg>
+        <span class="lbl">Soirée</span>
+        <span class="big">9–7<small>°C</small></span>
+        <span class="sub">Ciel peu nuageux, pas de pluie, vent d’ouest de 11 à 7 km/h</span>
       </div>
       <div>
-        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M17 17 a7.5 7.5 0 1 1 -8 -12 a6.5 6.5 0 0 0 8 12 z"/></svg>
-        <span class="lbl">Soir</span>
-        <span class="big">8–9<small>°C</small></span>
-        <span class="sub">Sec dès 18h, ciel peu nuageux, vent d’ouest de 7 km/h</span>
+        <svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M6 18 h12 a4 4 0 0 0 0 -8 a6 6 0 0 0 -11.5 1 a3.5 3.5 0 0 0 -0.5 7 z"/><path d="M5 23 h16"/></svg>
+        <span class="lbl">Nuit</span>
+        <span class="big">7<small>°C</small></span>
+        <span class="sub">Nuageux, vent presque nul ; 6,7 °C vers 6h</span>
       </div>
     </div>
-    <p>Demain vendredi : brouillard le matin, 7 °C au plus frais, puis ciel dégagé et 11 °C l’après-midi, sans pluie, <a href="https://open-meteo.com/">selon Open-Meteo</a>.</p>
+    <p>Demain vendredi : de 5,6 °C au plus frais à 10,9 °C l’après-midi, ciel voilé à dégagé, 5 % de pluie, soleil levé à 8h02 et couché à 17h20, <a href="https://open-meteo.com/">selon Open-Meteo</a>.</p>
   </section>
 
   <section>
     <h2>Actualités du jour</h2>
     <div class="une">
       <span class="tag">À la une · Monde</span>
-      <span class="t">Les nouveaux droits de douane américains font réagir</span>
-      <p>Washington reproche aux pays visés de recourir à des subventions qui créent de la surproduction et pénalisent les entreprises américaines ; ces pays dénoncent des mesures « inacceptables », <a href="https://www.franceinfo.fr/monde/usa/droits-de-douane/inacceptables-regrettables-pretexte-a-la-manipulation-politique-les-pays-vises-s-indignent-face-aux-nouveaux-droits-de-douane-americains_8300712.html">selon franceinfo</a>.</p>
+      <span class="t">Pablo Hernandez de Cos choisi pour succéder à Christine Lagarde à la BCE</span>
+      <p>L’ancien gouverneur de la Banque d’Espagne, qui dirige aujourd’hui la Banque des règlements internationaux, a été préféré au Néerlandais Klaas Knot, <a href="https://www.franceinfo.fr/monde/europe/union-europeenne/l-ex-gouverneur-de-la-banque-d-espagne-pablo-hernandez-de-cos-va-succeder-a-christine-lagarde-a-la-tete-de-la-banque-centrale-europeenne_8301510.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</p>
     </div>
     <ol class="news">
-      <li><div><span class="tag">Monde</span><span class="t">Trump et Rutte demandent à Moscou de ne pas étendre la guerre</span>
-        Le président américain et le chef de l’Otan ont signé une déclaration commune après leur rencontre de mercredi, <a href="https://www.france24.com/fr/europe/20261126-en-direct-ukraine-russie-ue-sommet-aide-zelensky-poutine">rapporte France 24</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">La chasse aux 500 parrainages</span>
-        Près d’un maire sur deux dit qu’il ne parrainera aucun candidat à la présidentielle, alors que le congrès des maires se clôt à Paris, <a href="https://www.franceinfo.fr/replay-radio/le-choix-franceinfo/reportage-les-parrainages-je-n-en-donne-a-personne-les-maires-au-centre-de-la-chasse-aux-500-signatures-pour-les-candidats-a-l-election-presidentielle_8278493.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Journée de mobilisation dans le supérieur</span>
-        Seules les organisations étudiantes et de l’enseignement supérieur appellent à la grève ; les fonctionnaires se mobiliseront le 1er décembre, <a href="https://www.franceinfo.fr/societe/education/blocage-des-lycees/etudiants-enseignants-du-superieur-policiers-a-quoi-faut-il-s-attendre-pour-la-mobilisation-de-jeudi_8299044.html">d’après franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Le procès d’Émilie König s’ouvre à Paris</span>
-        Partie en Syrie dès 2012, elle comparaît devant la cour d’assises spéciale, <a href="https://www.rfi.fr/fr/france/20261126-france-le-proc%C3%A8s-d-%C3%A9milie-k%C3%B6nig-%C3%A9g%C3%A9rie-du-jihad-commence-aux-assises-%C3%A0-paris">indique RFI</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Reporters sans frontières vise CNews</span>
-        L’ONG saisit l’Arcom pour demander une suspension d’un mois, en dénonçant un non-respect répété du pluralisme, <a href="https://www.franceinfo.fr/economie/medias/l-ong-reporters-sans-frontieres-saisit-l-arcom-pour-demander-de-suspendre-cnews-pendant-un-mois_8300685.html">selon franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">BYD veut racheter l’usine d’Hambach</span>
-        Le constructeur chinois cherche à produire en Moselle, comme d’autres en Europe pour contourner les droits de douane, <a href="https://www.franceinfo.fr/economie/automobile/pourquoi-le-constructeur-chinois-byd-veut-il-s-implanter-en-france-alors-que-le-marche-automobile-europeen-est-en-panne_8299377.html">explique franceinfo</a>.</div></li>
-      <li><div><span class="tag">France</span><span class="t">Des polluants éternels dans des laits infantiles</span>
-        Des analyses révèlent des PFAS interdits dans des laits vendus en France, à des niveaux qui dépassent la dose hebdomadaire tolérable pour les nourrissons, <a href="https://www.lemonde.fr/planete/article/2026/11/26/des-laits-infantiles-vendus-en-france-sont-contamines-par-des-pfas-interdits-et-cancerogenes_6815474_3244.html">selon Le Monde</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">La Pologne prépare une zone d’exclusion aérienne</span>
-        Elle longera la frontière ukrainienne sur quelques dizaines de kilomètres pour repérer, et au besoin abattre, des aéronefs militaires russes, <a href="https://www.rfi.fr/fr/europe/20261125-la-pologne-va-instaurer-une-zone-d-exclusion-a%C3%A9rienne-%C3%A0-la-fronti%C3%A8re-ukrainienne">d’après RFI</a>.</div></li>
-      <li><div><span class="tag">Monde</span><span class="t">Espagne : Sánchez refuse d’envisager la défaite</span>
-        À trois jours des législatives du 29 novembre, les sondages donnent la majorité à la droite et à l’extrême droite, <a href="https://www.lemonde.fr/podcasts/article/2026/11/26/elections-en-espagne-le-coup-de-poker-de-pedro-sanchez_6815462_5463015.html">selon Le Monde</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Émilie König s’excuse à l’ouverture de son procès</span>
+        L’ex-propagandiste de l’État islamique, jugée jusqu’à lundi à Paris, dit « honte » devant la cour d’assises spéciale, <a href="https://www.franceinfo.fr/monde/terrorisme-djihadistes/j-ai-vraiment-honte-au-premier-jour-de-son-proces-emilie-konig-ex-propagandiste-de-l-etat-islamique-presente-ses-excuses-a-toute-la-nation-francaise_8301402.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Bardella : de nouveaux messages antisémites révélés</span>
+        Le Monde et Mediapart publient de nouveaux échanges de 2013 attribués au président du RN, dont Le Monde détaille « 19 preuves » d’authenticité, <a href="https://www.lemonde.fr/politique/article/2026/11/26/messages-antisemites-de-jordan-bardella-les-19-preuves-que-le-president-du-rn-est-bien-l-auteur-des-propos-incrimines-sur-messenger_6815482_823448.html">d’après Le Monde</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Depardieu renvoyé en procès pour une partie des viols</span>
+        La cour d’appel de Paris confirme le renvoi pour des faits de l’été 2018 dénoncés par Charlotte Arnould ; un pourvoi en cassation reste possible, <a href="https://www.lemonde.fr/societe/article/2026/11/26/gerard-depardieu-renvoye-en-proces-pour-une-partie-des-viols-dont-l-accuse-charlotte-arnould_6815543_3224.html">selon Le Monde</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Budget de la Sécu 2027 : pas d’accord entre députés et sénateurs</span>
+        La commission mixte paritaire a échoué à se mettre d’accord et le texte retourne à l’Assemblée, <a href="https://www.franceinfo.fr/economie/budget/budget-de-la-securite-sociale-les-deputes-et-senateurs-echouent-a-trouver-un-accord-le-texte-retourne-a-l-assemblee_8301108.html#xtor=RSS-3-[lestitres]">rapporte franceinfo</a>.</div></li>
+      <li><div><span class="tag">France</span><span class="t">Les étudiants défilent à Paris</span>
+        Syndicats étudiants et personnels de la recherche ont lancé un cortège, alors que les blocages de lycées reculent, <a href="https://www.franceinfo.fr/societe/education/blocage-des-lycees/direct-mobilisation-de-la-jeunesse-les-organisations-veulent-maintenir-la-pression-malgre-le-recul-des-blocages-une-manifestation-prevue-dans-l-apres-midi_8300754.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Sommet à Bruxelles sur le budget européen et l’Ukraine</span>
+        Les Vingt-Sept cherchent un compromis sur le budget 2028-2034, avec en toile de fond une enveloppe de cent milliards d’euros de plus pour Kiev, <a href="https://www.france24.com/fr/vid%C3%A9o/20261126-r%C3%A9union-%C3%A0-bruxelles-cent-milliards-d-euros-de-plus-pour-l-ukraine">explique France 24</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Londres écrit à 100 000 anciens militaires</span>
+        Face à la menace russe, le ministère britannique de la Défense veut pouvoir les rappeler en cas de besoin, une démarche inédite, <a href="https://www.franceinfo.fr/societe/armee-securite-defense/face-a-la-menace-russe-le-royaume-uni-contacte-100-000-anciens-militaires_8301528.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Kiev revendique des frappes sur une base aérienne et un site pétrolier russes</span>
+        L’état-major ukrainien parle de deux infrastructures stratégiques touchées dans la nuit de mercredi à jeudi, <a href="https://www.lemonde.fr/international/live/2026/11/26/en-direct-guerre-en-ukraine-kiev-revendique-des-attaques-sur-une-base-aerienne-et-une-station-petroliere-en-russie_6814183_3210.html">d’après Le Monde</a>.</div></li>
+      <li><div><span class="tag">Monde</span><span class="t">Un pétrolier chavire au large d’Ibiza avec 7 000 tonnes de diesel</span>
+        Un marin est mort et l’Espagne a déclenché son plan d’urgence contre la pollution marine en Méditerranée, <a href="https://www.franceinfo.fr/environnement/pollution/naufrages/c-est-quelque-chose-qui-est-tres-preoccupant-l-inquietude-apres-le-naufrage-d-un-petrolier-avec-7-000-tonnes-de-diesel-a-bord-au-large-d-ibiza_8301390.html#xtor=RSS-3-[lestitres]">rapporte franceinfo</a>.</div></li>
     </ol>
   </section>
 
@@ -273,23 +256,18 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <h2>Sport</h2>
     <div class="scores">
       <div class="score">
-        <span class="team r">Lille</span>
-        <span class="sc big">2 <span class="lose">– 1</span></span>
-        <span class="team l">Bayern Munich</span>
-        <div class="mini"><span>PSG <b>2</b> – 2 Roma</span></div>
-        <p class="score-note">Ligue des champions : Lille renverse le Bayern, tandis que le PSG, privé de Doué et Kvaratskhelia, concède le nul au Parc des Princes et reste deuxième avec 13 points, <a href="https://www.france24.com/fr/sports/20261125-ligue-des-champions-premi%C3%A8re-difficult%C3%A9-pour-le-psg-lille-signe-un-exploit-face-au-bayern">selon France 24</a>.</p>
+        <span class="team r">Alexander Zverev</span>
+        <span class="sc big">6-3 <span class="lose">6-2</span></span>
+        <span class="team l">Arthur Fery</span>
+        <p class="score-note">Coupe Davis, quarts de finale : le numéro 1 mondial signe sa 70e victoire de l’année, mais l’Allemagne s’incline dans le double décisif face à la Grande-Bretagne, <a href="https://www.lequipe.fr/Tennis/Actualites/Pas-de-retrouvailles-entre-zverev-et-alcaraz-l-allemagne-eliminee-en-quarts-de-finale-de-la-coupe-davis-par-la-grande-bretagne/1746352#at_medium=RSS_feeds">selon L’Équipe</a>.</p>
       </div>
       <div class="score">
-        <span class="team r">Philadelphie</span>
-        <span class="sc big">111 <span class="lose">– 104</span></span>
-        <span class="team l">Miami</span>
-        <p class="score-note">NBA Cup : LeBron James signe son premier triple-double avec les Sixers (25 points, 12 passes, 10 rebonds), <a href="https://www.lequipe.fr/Basket/Actualites/Lebron-james-signe-son-premier-triple-double-avec-philadelphie-et-prive-miami-d-une-huitieme-victoire-de-suite/1746256">d’après L’Équipe</a>. À Portland, Victor Wembanyama inscrit 44 points mais San Antonio s’incline, <a href="https://www.lequipe.fr/Basket/Actualites/Malgre-les-44-points-de-victor-wembanyama-les-san-antonio-spurs-s-inclinent-pour-la-premiere-fois-de-la-saison-a-l-exterieur-chez-les-portland-trail-blazers/1746255">selon L’Équipe</a>.</p>
+        <div class="mini"><span><b>Lille</b> bat le Bayern Munich</span><span><b>Rome</b> tient le PSG en échec</span></div>
+        <p class="score-note">Ligue des champions, mercredi soir : première victoire de la saison pour le Losc, qui se relance (<a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/tombeur-du-bayern-munich-le-losc-signe-sa-premiere-victoire-de-la-saison-en-ligue-des-champions-et-se-relance_8300349.html#xtor=RSS-3-%5Bsports%5D">franceinfo</a>), et fin de série pour le PSG (<a href="https://www.franceinfo.fr/sports/foot/ligue-des-champions/tenu-en-echec-par-l-as-rome-en-ligue-des-champions-le-psg-voit-sa-serie-de-victoires-s-arreter_8300280.html#xtor=RSS-3-%5Bsports%5D">franceinfo</a>).</p>
       </div>
       <div class="score">
-        <span class="team r">Marseille</span>
-        <span class="sc big">18h45</span>
-        <span class="team l">Levski Sofia</span>
-        <p class="score-note">Ligue Europa, ce jeudi : l’OM, renversé par Le Mans dimanche en Ligue 1, veut rebondir face au club bulgare, <a href="https://www.franceinfo.fr/sports/foot/ligue-europa/on-doit-montrer-qu-on-est-capables-de-rebondir-face-au-levski-sofia-l-om-veut-eloigner-le-spectre-de-la-rechute-en-ligue-europa_8299989.html">selon franceinfo</a>.</p>
+        <div class="mini"><span><b>Biathlon</b> · Coupe du monde</span><span>Première manche à Kontiolahti</span></div>
+        <p class="score-note">Le retour de la Coupe du monde en Finlande, avec une équipe de France qui sort d’une saison olympique exceptionnelle, <a href="https://www.franceinfo.fr/sports/sports-d-hiver/biathlon/ou-en-est-l-equipe-de-france-de-biathlon-quelques-mois-apres-sa-saison-olympique-exceptionnelle_8299458.html#xtor=RSS-3-%5Bsports%5D">selon franceinfo</a>.</p>
       </div>
     </div>
   </section>
@@ -299,32 +277,32 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <div class="themes">
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="2"/><ellipse cx="13" cy="13" rx="10" ry="4"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(60 13 13)"/><ellipse cx="13" cy="13" rx="10" ry="4" transform="rotate(120 13 13)"/></svg>Sciences</header>
-        <article><span class="tag">Mathématiques</span><span class="t">L’hypothèse de Riemann aurait cédé</span>
-          Le mathématicien Levent Alpöge annonce sur son site une résolution obtenue avec Claude, l’IA d’Anthropic, et la communauté s’agite ; le conditionnel reste de mise, <a href="https://www.lefigaro.fr/sciences/l-hypothese-de-riemann-plus-celebre-probleme-de-mathematiques-au-monde-aurait-ete-resolue-par-claude-l-ia-d-anthropic-20261120">selon Le Figaro</a>.</article>
         <article><span class="tag">Physique</span><span class="t">Le supersolide, nouvel état de la matière</span>
-          Des chercheurs ont créé une matière qui s’organise comme un cristal tout en s’écoulant sans résistance, <a href="https://www.franceinfo.fr/sciences/ni-solide-ni-liquide-voici-le-supersolide-un-nouvel-etat-de-la-matiere_8299764.html">explique franceinfo</a>.</article>
-        <article><span class="tag">Archéologie</span><span class="t">Une épave de 4 000 ans au large de la Turquie</span>
-          Sa cargaison date du début de l’âge du bronze ; ce serait la plus vieille épave jamais découverte, <a href="https://www.sciencesetavenir.fr/archeo-paleo/une-decouverte-exceptionnelle-une-epave-vieille-de-plus-de-4-000-ans-retrouvee-en-mer_196263">selon Sciences et Avenir</a>.</article>
-        <article><span class="tag">Santé</span><span class="t">Pourquoi les femmes cicatrisent plus vite</span>
-          Les œstrogènes coordonnent mieux le renouvellement des cellules souches de la peau, <a href="https://www.sciencesetavenir.fr/sante/pourquoi-les-femmes-cicatrisent-plus-vite_196255">d’après Sciences et Avenir</a>.</article>
+          Des chercheurs ont créé une matière qui s’organise comme un cristal tout en s’écoulant sans résistance. Un état à la fois solide et liquide, <a href="https://www.franceinfo.fr/sciences/ni-solide-ni-liquide-voici-le-supersolide-un-nouvel-etat-de-la-matiere_8299764.html#xtor=RSS-3-%5Bsciences%5D">explique franceinfo</a>.</article>
+        <article><span class="tag">Archéologie</span><span class="t">Une femme vieille de 2 000 ans sortie d’une tourbière</span>
+          Décapitée puis abandonnée, elle est la première du genre trouvée en Irlande du Nord. Le public irlandais l’a tout de suite adoptée, <a href="https://www.sciencesetavenir.fr/archeo-paleo/une-femme-decapitee-il-y-a-plus-de-2000-ans-decouverte-en-irlande-du-nord_196584?xtor=RSS-4">selon Sciences et Avenir</a>.</article>
+        <article><span class="tag">Biologie</span><span class="t">L’abeille géante des Moluques dans un inventaire inédit</span>
+          Megachile pluto, la plus grande abeille connue, figure parmi 4 147 espèces insulaires recensées, dont plus de 1 700 n’existent que sur des îles, <a href="https://www.lemonde.fr/sciences/article/2026/11/25/megachile-pluto-l-abeille-geante-des-moluques-symbole-des-especes-insulaires_6815163_1650684.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Climat</span><span class="t">Après l’échec d’Antalya, on veut réformer les COP</span>
+          Les appels se multiplient pour changer le mode de décision par consensus, qui rend les accords de plus en plus difficiles, <a href="https://www.lefigaro.fr/sciences/la-cop31-a-ete-prise-en-otage-apres-l-echec-d-antalya-faut-il-changer-les-regles-du-jeu-20261124">selon Le Figaro</a>.</article>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 22 h20"/><path d="M4 17 l5 -5 l4 3 l8 -9"/><path d="M16 6 h5 v5"/></svg>Économie</header>
-        <article><span class="tag">Industrie</span><span class="t">Sanofi rachète Insmed pour 37,6 milliards d’euros</span>
-          L’opération, l’une des plus grosses du groupe, devrait se finaliser au premier semestre 2027 et améliorer le bénéfice par action d’ici fin 2028, <a href="https://www.lemonde.fr/economie/article/2026/11/24/sanofi-groupe-pharmaceutique-francais-va-racheter-l-americain-insmed-pour-37-6-milliards-d-euros_6814719_3234.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Budget</span><span class="t">Le Sénat vote l’effort demandé aux grandes entreprises</span>
-          Cinq milliards d’euros dans le budget 2027, acceptés par une droite sénatoriale pourtant réticente à taxer les entreprises, <a href="https://www.lemonde.fr/politique/article/2026/11/26/budget-2027-le-senat-approuve-l-effort-de-cinq-milliards-d-euros-demande-aux-grandes-entreprises_6815197_823448.html">rapporte Le Monde</a>.</article>
+        <article><span class="tag">Industrie</span><span class="t">BYD veut produire en France</span>
+          Le constructeur chinois a annoncé vouloir racheter l’usine d’Hambach, en Moselle, pour produire en Europe malgré un marché automobile en panne et contourner les droits de douane, <a href="https://www.franceinfo.fr/economie/automobile/pourquoi-le-constructeur-chinois-byd-veut-il-s-implanter-en-france-alors-que-le-marche-automobile-europeen-est-en-panne_8299377.html#xtor=RSS-3-[lestitres]">selon franceinfo</a>.</article>
+        <article><span class="tag">Consommation</span><span class="t">Jouets en ligne : 40 % jugés dangereux</span>
+          Les contrôles de la répression des fraudes en 2025 concluent que 77 % de ces jouets sont non conformes, à l’approche des fêtes, <a href="https://www.lemonde.fr/economie/article/2026/11/26/un-jouet-sur-trois-qui-est-vendu-en-ligne-est-dangereux-alertent-serge-papin-et-la-dgccrf-avant-les-fetes-de-fin-d-annee_6815540_3234.html">d’après Le Monde</a>.</article>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="7" width="12" height="12" rx="1.5"/><rect x="10.5" y="10.5" width="5" height="5"/><path d="M10 7 V3 M16 7 V3 M10 23 v-4 M16 23 v-4 M7 10 H3 M7 16 H3 M23 10 h-4 M23 16 h-4"/></svg>IA</header>
-        <article><span class="tag">Produit</span><span class="t">Muse, l’agent de Meta, inquiète sur les données</span>
-          Quasi autonome, il est déjà disponible aux États-Unis et au Canada, pas encore en France, et sa montée en puissance relance les questions sur les données personnelles, <a href="https://www.franceinfo.fr/internet/intelligence-artificielle/pourquoi-muse-l-agent-ia-quasi-autonome-de-meta-relance-les-inquietudes-sur-son-utilisation-des-donnees-personnelles_8297907.html">selon franceinfo</a>.</article>
-        <article><span class="tag">Entreprises</span><span class="t">Jensen Huang revient à la tête de Nvidia</span>
-          Poussé à la démission le 12 novembre puis réintégré lundi, il a présenté ses excuses aux salariés pour avoir enfreint le code de conduite, <a href="https://www.01net.com/actualites/jai-commis-de-graves-erreurs-de-retour-chez-nvidia-jensen-huang-fait-une-premiere-annonce.html">rapporte 01net</a>.</article>
-        <article><span class="tag">Recherche</span><span class="t">Le graphique le plus mal compris de l’IA mis à jour</span>
-          Un rapport de l’association METR montre que certaines capacités progressent toujours de façon exponentielle, mais que les modèles sont moins à l’aise sur certaines tâches, <a href="https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/">d’après MIT Technology Review</a>.</article>
-        <article><span class="tag">Société</span><span class="t">L’IA et les conseils médicaux : l’Agence du médicament alerte</span>
-          De plus en plus de personnes lui demandent un avis sur leurs médicaments, avec des cas de surdosage signalés, <a href="https://www.franceinfo.fr/sante/medicament/l-agence-du-medicament-met-en-garde-contre-les-conseils-de-l-ia-qui-peuvent-etre-dangereux-pour-la-sante-des-patients_8300325.html">selon franceinfo</a>.</article>
+        <article><span class="tag">Infrastructure</span><span class="t">Un million de satellites pour des data centers spatiaux</span>
+          SpaceX obtient l’autorisation de déployer sa constellation Starmind, alors que Google et Blue Origin avancent aussi sur le sujet, <a href="https://www.lemonde.fr/sciences/article/2026/11/26/spacex-recoit-l-autorisation-de-lancer-jusqu-a-un-million-de-satellites-pour-ses-centres-de-donnees-spatiaux_6815331_1650684.html">selon Le Monde</a>.</article>
+        <article><span class="tag">Entreprises</span><span class="t">Nvidia : des élus républicains réclament des enquêtes</span>
+          Après le retour de Jensen Huang, une partie du camp de Donald Trump rompt les rangs, ce qui est rare, <a href="https://www.sciencesetavenir.fr/politique/une-partie-des-republicains-rompt-les-rangs-derriere-trump-et-reclame-des-enquetes-sur-nvidia_196531">d’après Sciences et Avenir</a>.</article>
+        <article><span class="tag">Régulation</span><span class="t">L’ANSM alerte sur les conseils médicaux de l’IA</span>
+          L’agence a recensé au moins huit cas de surdosage entre 2024 et 2026 liés à des conseils d’une IA, chez des personnes de 17 à 89 ans, <a href="https://www.franceinfo.fr/sante/conseils-de-l-ia-sur-les-medicaments-l-ansm-sonne-l-alerte_8301597.html#xtor=RSS-3-%5Bsante%5D">rapporte franceinfo</a>.</article>
+        <article><span class="tag">Recherche</span><span class="t">Les data centers consomment trois fois plus que prévu</span>
+          Une nouvelle estimation de chercheurs de Harvard revoit à la hausse les besoins en électricité des centres actuels, <a href="https://www.sciencesetavenir.fr/high-tech/les-data-centers-consomment-beaucoup-plus-d-electricite-que-prevu_196534?xtor=RSS-12">selon Sciences et Avenir</a>.</article>
       </div>
     </div>
   </section>
@@ -334,21 +312,21 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
     <div class="themes two">
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 3 c4 3 5 8 4 13 h-8 c-1 -5 0 -10 4 -13 z"/><circle cx="13" cy="10" r="1.6"/><path d="M9 16 l-3 4 h4 M17 16 l3 4 h-4"/><path class="warm" d="M11.5 20 l1.5 3 l1.5 -3"/></svg>Espace</header>
-        <article><span class="tag">Défense planétaire</span><span class="t">Hera dévoile un cratère géant sur Dimorphos</span>
-          Quatre ans après l’impact de la sonde américaine DART, la sonde européenne est sur place pour juger de la déviation de l’astéroïde. Les premières images montrent un cratère de la taille d’un stade, <a href="https://www.lemonde.fr/sciences/article/2026/11/25/la-sonde-hera-revele-un-cratere-geant-sur-dimorphos-le-petit-asteroide-devie-par-la-mission-dart_6815154_1650684.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Exploration</span><span class="t">BepiColombo en orbite autour de Mercure</span>
-          Lancé en octobre 2018, l’engin de quatre tonnes a parcouru plus de 10 milliards de kilomètres pour ajuster sa trajectoire. L’engin est désormais autour de la planète la plus proche du Soleil, <a href="https://www.franceinfo.fr/sciences/espace/la-mission-spatiale-bepicolombo-est-entree-dans-l-orbite-de-mercure-apres-huit-ans-de-voyage_8294507.html">d’après franceinfo</a>.</article>
-        <article><span class="tag">Lancements</span><span class="t">Feu vert pour un million de satellites SpaceX</span>
-          Le régulateur américain autorise le déploiement de la constellation Starmind, des satellites conçus pour des centres de données en orbite, <a href="https://www.space.com/space-exploration/launches-spacecraft/green-light-for-starmind-spacex-gets-approval-to-deploy-1-million-ai-satellites">selon Space.com</a>.</article>
+        <article><span class="tag">Défense planétaire</span><span class="t">Hera dévoile le cratère de Dimorphos</span>
+          Quatre ans après l’impact de DART, la sonde européenne montre un trou grand comme un stade dans l’astéroïde dévié. Ses mesures doivent préciser l’effet réel du test, <a href="https://www.lemonde.fr/sciences/article/2026/11/25/la-sonde-hera-revele-un-cratere-geant-sur-dimorphos-le-petit-asteroide-devie-par-la-mission-dart_6815154_1650684.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Vols habités</span><span class="t">Un premier astronaute étranger à bord de Tiangong</span>
+          Le Pakistanais Muhammad Zeeshan Ali est arrivé à la station chinoise avec l’équipage de Shenzhou-24, une première pour un visiteur international, <a href="https://www.space.com/space-exploration/human-spaceflight/pakistani-astronaut-becomes-1st-international-visitor-to-chinas-tiangong-space-station-photos">selon Space.com</a>.</article>
+        <article><span class="tag">Lanceurs</span><span class="t">Alpha Impulsion s’installe à Toulouse</span>
+          La start-up de microlanceurs veut diviser par six le coût de mise en orbite et prépare une levée de fonds, <a href="https://www.ladepeche.fr/2026/11/24/avec-sa-fusee-revolutionnaire-alpha-impulsion-demenage-a-toulouse-et-prepare-une-levee-de-fonds-pour-semparer-du-marche-des-lanceurs-13658813.php">rapporte La Dépêche du Midi</a>.</article>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 14 l20 -6 c1 -0.3 1.6 1.2 0.6 1.7 L5 18 z"/><path d="M10 12 l-3 -6 h3 l6 4.5"/><path d="M8 16.5 l1 4 h2.5 l2 -6"/></svg>Aéronautique</header>
-        <article><span class="tag">Toulouse</span><span class="t">350 millions d’euros « sanctuarisés » pour la recherche</span>
-          En visite chez Airbus lundi, Emmanuel Macron a garanti le maintien de cette enveloppe pour la recherche aéronautique civile, une demande forte de toute la filière, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/on-va-sanctuariser-depuis-airbus-a-toulouse-emmanuel-macron-garantit-350-millions-d-euros-a-la-recherche-aeronautique-3454455.html">selon France 3 Occitanie</a>.</article>
-        <article><span class="tag">Commandes</span><span class="t">Air Europa et ses 40 A350 assemblés à Toulouse</span>
-          La compagnie espagnole saisit la justice de son pays : selon elle, les terminaux de l’aéroport de Madrid sont trop petits pour accueillir tous ses appareils, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/airbus-a350-40-avions-commandes-a-toulouse-mais-un-aeroport-de-madrid-trop-petit-pour-les-faire-voler-a-plein-3455489.html">rapporte France 3 Occitanie</a>.</article>
-        <article><span class="tag">Occitanie</span><span class="t">Tarmac Aerosave change d’échelle à Tarbes</span>
-          Le groupe investit 30 millions d’euros dans une zone de démantèlement de 15 000 m² pour devenir le champion européen du recyclage d’avions, <a href="https://www.ladepeche.fr/2026/11/25/nous-sommes-tout-sauf-un-cimetiere-a-avions-a-tarbes-tarmac-aerosave-veut-devenir-le-champion-europeen-du-recyclage-des-avions-13671241.php">selon La Dépêche du Midi</a>.</article>
+        <article><span class="tag">Airbus</span><span class="t">Macron annonce 350 millions d’euros pour l’aéronautique</span>
+          L’annonce a été faite lundi 23 novembre depuis les usines Airbus de Toulouse, <a href="https://www.ladepeche.fr/2026/11/23/direct-emmanuel-macron-a-toulouse-le-chef-de-letat-en-visite-sur-le-site-dairbus-durant-toute-la-matinee-13666690.php">selon La Dépêche du Midi</a>.</article>
+        <article><span class="tag">Commandes</span><span class="t">Air Europa et ses 40 A350, face à l’aéroport de Madrid</span>
+          La compagnie espagnole a commandé jusqu’à 40 A350 assemblés à Toulouse, mais saisit la justice : ses terminaux madrilènes seraient trop petits pour les accueillir, <a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/airbus-a350-40-avions-commandes-a-toulouse-mais-un-aeroport-de-madrid-trop-petit-pour-les-faire-voler-a-plein-3455489.html">d’après France 3 Occitanie</a>.</article>
+        <article><span class="tag">Industrie</span><span class="t">Tarmac Aerosave mise sur le recyclage d’avions à Tarbes</span>
+          Une zone de démantèlement de 15 000 m² et 30 millions d’euros d’investissement pour devenir le champion européen du secteur, <a href="https://www.ladepeche.fr/2026/11/25/nous-sommes-tout-sauf-un-cimetiere-a-avions-a-tarbes-tarmac-aerosave-veut-devenir-le-champion-europeen-du-recyclage-des-avions-13671241.php">selon La Dépêche du Midi</a>.</article>
       </div>
     </div>
   </section>
@@ -359,17 +337,17 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 9 h12 a3 3 0 1 0 -3 -3"/><path d="M3 14 h17 a3 3 0 1 1 -3 3"/><path class="warm" d="M3 19 h7"/></svg>Air à Toulouse</header>
         <span class="lbl">Indice européen, pic des prochaines heures</span>
-        <span class="big air">42<small> · moyen</small></span>
-        <span class="sub">Pic attendu vers 20h, dominé par les particules fines PM2,5 (16 µg/m³). Le créneau le plus sain pour sortir : de 12h à 16h, indice entre 17 et 21, <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
+        <span class="big air">45<small> · moyen</small></span>
+        <span class="sub">Pic vendredi vers 10h, porté par les particules fines PM2.5. Le moment le plus sain pour sortir : cet après-midi jusqu’à 18h, indice entre 23 et 26, <a href="https://open-meteo.com/en/docs/air-quality-api">selon Open-Meteo</a>.</span>
       </div>
       <div class="theme">
         <header><svg class="ico" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22 c-6 -4 -9 -8 -9 -12 a4.5 4.5 0 0 1 9 -1.5 a4.5 4.5 0 0 1 9 1.5 c0 4 -3 8 -9 12 z"/><path class="warm" d="M7 13 h3 l1.5 -3 l2 5 l1.5 -2 h4"/></svg>Santé</header>
-        <article><span class="tag">Épidémie</span><span class="t">La grippe s’installe</span>
-          La majorité des régions de l’Hexagone sont passées en pré-épidémie, et les recours aux soins dépassent ceux de l’an dernier à la même période, selon Santé publique France, <a href="https://www.lemonde.fr/societe/article/2026/11/25/la-grippe-s-installe-en-france-ou-la-majorite-des-regions-de-l-hexagone-sont-passees-en-pre-epidemie_6815156_3224.html">relayé par Le Monde</a>.</article>
-        <article><span class="tag">Santé publique</span><span class="t">Aide à mourir : les soignants s’interrogent</span>
-          Les recommandations de la Haute Autorité de santé sur les substances létales, publiées le 19 novembre, sont diversement accueillies par les médecins et infirmiers, <a href="https://www.lemonde.fr/societe/article/2026/11/23/aide-a-mourir-il-n-existe-pas-de-pilule-letale-magique-mourir-n-est-jamais-simple_6814359_3224.html">selon Le Monde</a>.</article>
-        <article><span class="tag">Prévention</span><span class="t">L’alcool gagne du terrain chez les mineurs</span>
-          La consommation baisse chez les adultes, mais l’alcool joue un rôle dans un quart des accidents mortels de la route en 2025, selon l’OFDT, <a href="https://www.lemonde.fr/societe/article/2026/11/24/l-alcool-toujours-un-fleau-sur-les-routes-en-hausse-d-experimentation-chez-les-mineurs_6814713_3224.html">cité par Le Monde</a>.</article>
+        <article><span class="tag">Épidémie</span><span class="t">La grippe s’installe en France</span>
+          La majorité des régions de l’Hexagone sont passées en pré-épidémie, avec des recours aux soins supérieurs à ceux de l’an dernier à la même date, <a href="https://www.lemonde.fr/societe/article/2026/11/25/la-grippe-s-installe-en-france-ou-la-majorite-des-regions-de-l-hexagone-sont-passees-en-pre-epidemie_6815156_3224.html">selon Le Monde et Santé publique France</a>.</article>
+        <article><span class="tag">Environnement</span><span class="t">Des PFAS dans des laits infantiles vendus en France</span>
+          Des analyses révèlent des polluants éternels interdits, à des niveaux qui dépassent la dose hebdomadaire tolérable pour les nourrissons, <a href="https://www.lemonde.fr/planete/article/2026/11/26/des-laits-infantiles-vendus-en-france-sont-contamines-par-des-pfas-interdits-et-cancerogenes_6815474_3244.html">d’après Le Monde</a>.</article>
+        <article><span class="tag">Prévention</span><span class="t">Le vaccin contre le papillomavirus patine</span>
+          La couverture reste bien en deçà de l’objectif de 80 % fixé pour 2030, surtout dans les quartiers prioritaires, <a href="https://www.franceinfo.fr/sante/vaccins/reportage-je-suis-mitigee-il-y-a-trop-de-vaccins-la-vaccination-contre-le-papillomavirus-patine-dans-certains-quartiers_8300304.html#xtor=RSS-3-%5Bsante%5D">explique franceinfo</a>.</article>
       </div>
     </div>
   </section>
@@ -377,34 +355,34 @@ a:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
   <section>
     <h2>Culture</h2>
     <div class="themes culture">
-      <div class="theme"><article><span class="tag">Cinéma</span><span class="t">« Un bon petit soldat »</span>
-        Stéphane Brizé signe son film le plus féroce sur l’entreprise, à travers une compagnie d’assurances, <a href="https://www.lemonde.fr/culture/article/2026/11/24/avec-un-bon-petit-soldat-stephane-brize-signe-son-film-le-plus-feroce-sur-le-monde-de-l-entreprise_6814830_3246.html">selon Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Cinéma</span><span class="t">« Paper Tiger », de James Gray</span>
+        Un récit de lente dislocation familiale avec Scarlett Johansson, Adam Driver et Miles Teller, à l’affiche cette semaine, <a href="https://www.lemonde.fr/culture/article/2026/11/24/paper-tiger-le-cineaste-james-gray-livre-le-recit-captivant-d-une-lente-dislocation-familiale_6814821_3246.html">selon Le Monde</a>.</article></div>
       <div class="theme"><article><span class="tag">Expo à Toulouse</span><span class="t">Joan Miró, « Protestation »</span>
-        Près de 200 œuvres, peintures, tapisseries et costumes, aux Abattoirs du 3 octobre 2026 au 7 mars 2027, <a href="https://www.lesabattoirs.org/Expositions/joan-miro/">sur le site des Abattoirs</a>.</article></div>
-      <div class="theme"><article><span class="tag">Livres</span><span class="t">« Lexique familial »</span>
-        Natalia Ginzburg reparaît dans une nouvelle traduction de ses « Mots de la tribu », chronique d’une famille antifasciste de Turin, <a href="https://www.lemonde.fr/livres/article/2026/11/25/la-nouvelle-traduction-des-mots-de-la-tribu-ravive-la-saveur-orale-de-ce-grand-roman-autobiographique-de-natalia-ginzburg_6815160_3260.html">selon Le Monde</a>.</article></div>
-      <div class="theme"><article><span class="tag">Musique</span><span class="t">Standley et Lazarevitch, folk baroque</span>
-        La voix de Moriarty et le flûtiste signent « Songs from the North Country », relecture de ballades des îles Britanniques, <a href="https://www.lemonde.fr/culture/article/2026/11/25/le-folk-baroque-de-la-chanteuse-rosemary-standley-et-du-flutiste-francois-lazarevitch_6815140_3246.html">d’après Le Monde</a>.</article></div>
+        À voir aux Abattoirs du 3 octobre 2026 au 7 mars 2027, <a href="https://www.lesabattoirs.org/Expositions/joan-miro/">sur le site du musée</a>.</article></div>
+      <div class="theme"><article><span class="tag">Livres</span><span class="t">Goncourt des lycéens pour Lilia Hassaine</span>
+        Son roman « JE » donne une voix à Bertha Mason, personnage de « Jane Eyre », <a href="https://www.lemonde.fr/livres/article/2026/11/26/lilia-hassaine-remporte-le-prix-goncourt-des-lyceens-avec-son-roman-je_6815534_3260.html">d’après Le Monde</a>.</article></div>
+      <div class="theme"><article><span class="tag">Musique</span><span class="t">Folk baroque pour Standley et Lazarevitch</span>
+        Rosemary Standley et François Lazarevitch relisent des ballades du nord des îles Britanniques dans « Songs from the North Country », <a href="https://www.lemonde.fr/culture/article/2026/11/25/le-folk-baroque-de-la-chanteuse-rosemary-standley-et-du-flutiste-francois-lazarevitch_6815140_3246.html">selon Le Monde</a>.</article></div>
     </div>
   </section>
 
   <section>
     <h2>Marchés</h2>
     <div class="quotes">
-      <div class="q"><span class="lbl">CAC 40</span><span class="big">7 980,57</span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,75 % <span>· clôture du 25/11</span></span></div>
+      <div class="q"><span class="lbl">CAC 40</span><span class="big">8 123,72</span>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+1,79 %</span></div>
       <div class="q"><span class="lbl">S&amp;P 500</span><span class="big">7 182,78</span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,25 % <span>· clôture du 25/11</span></span></div>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,25 %</span></div>
       <div class="q"><span class="lbl">Nasdaq</span><span class="big">23 585,80</span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,62 % <span>· clôture du 25/11</span></span></div>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,62 %</span></div>
       <div class="q"><span class="lbl">Euro / dollar</span><span class="big">1,10</span>
-        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,03 % <span>· ce matin</span></span></div>
-      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">90,99<small> $</small></span>
-        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−3,83 % <span>· ce matin</span></span></div>
-      <div class="q"><span class="lbl">Bitcoin</span><span class="big">60 541,54<small> $</small></span>
-        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+1,33 % <span>· ce matin</span></span></div>
+        <span class="chg up"><svg aria-hidden="true"><use href="#i-up"/></svg>+0,13 %</span></div>
+      <div class="q"><span class="lbl">Pétrole Brent</span><span class="big">91,41<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−3,38 %</span></div>
+      <div class="q"><span class="lbl">Bitcoin</span><span class="big">60 307,81<small> $</small></span>
+        <span class="chg down"><svg aria-hidden="true"><use href="#i-down"/></svg>−0,12 %</span></div>
     </div>
-    <p class="src">Cours relevés à 7h35 : les indices affichent leur clôture de mercredi (18h05 pour le CAC 40), le reste ses cotations du matin. Paris et Wall Street reculent d’une séance à l’autre, le Brent cède près de 4 % et le bitcoin remonte, <a href="https://www.boursorama.com/bourse/indices/cours/1rPCAC/">selon Boursorama</a> et <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a>.</p>
+    <p class="src">Cours relevés jeudi 26 novembre vers 16h20 ; Wall Street : clôture de mercredi 25. Le CAC 40 gagne 1,79 % le jour où les dirigeants de la zone euro désignent les responsables de la BCE (<a href="https://www.lemonde.fr/economie/article/2026/11/26/a-la-tete-de-la-bce-un-trio-fraichement-nomme-pour-proteger-l-europe-de-l-inflation-et-peut-etre-la-france-d-une-attaque-sur-les-marches_6815550_3234.html">Le Monde</a>), tandis que le Brent recule de plus de 3 %. Données <a href="https://www.boursorama.com/bourse/indices/cours/1rPCAC/">Boursorama</a> et <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a> ; information uniquement.</p>
   </section>
 </div></div>
 
